@@ -10,16 +10,14 @@
     Shield,
     
     //Give X player cards from pile
-    GainCards,
-    //Discord X random enemy cards
-    DiscardEnemyCards,
-    
+    DrawCards,
+
     //Gain X energy next turn
     GainEnergyNextTurn,
-    //Reveal X enemy cards
+    //Reveal enemy cards
     SeeEnemyCards,
     //Remove X enemy energy
-    
+    EnergyDrain,
     //Dodge next attack
     Dodge,
     //Extra attack damage whenever you attack
