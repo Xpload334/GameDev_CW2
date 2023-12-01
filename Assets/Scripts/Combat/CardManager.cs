@@ -17,6 +17,11 @@ public class CardManager : MonoBehaviour
      * When empty, shuffle all cards from discard pile into draw pile
      */
     public List<Card> drawPile = new List<Card>();
+
+    public CardManager(List<Card> cards)
+    {
+        allCards = cards;
+    }
     
     // private void Start()
     // {

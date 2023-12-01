@@ -1,20 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class CombatState: MonoBehaviour
+public class CombatState: MonoBehaviour
 {
     protected CombatManager combatManager;
-    public bool isEnded;
+    public bool isRunning;
 
     protected CombatState(CombatManager combatManager)
     {
         this.combatManager = combatManager;
     }
-
-
-    public abstract void OnStateEnter();
-
-    public abstract void OnStateUpdate();
     
-    public abstract void OnStateExit();
+    public void OnStateEnter()
+    {
+        isRunning = true;
+    }
+
+    public virtual void OnStateUpdate()
+    {
+        // throw new NotImplementedException();
+    }
+
+    public void OnStateExit()
+    {
+        isRunning = false;
+    }
 }

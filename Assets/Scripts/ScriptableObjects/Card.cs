@@ -21,6 +21,12 @@ public class Card : ScriptableObject
     // public CardStatType cardType2;
     // public int stat2;
 
+    public Card(string name1, List<CardEffect> stats1)
+    {
+        this.name1 = name1;
+        this.stats1 = stats1;
+    }
+
     public override string ToString()
     {
         return name1 + "/" + name2;
