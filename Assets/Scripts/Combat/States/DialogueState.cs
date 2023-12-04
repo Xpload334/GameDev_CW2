@@ -10,8 +10,8 @@ public class DialogueState : CombatState, ICombatState
 {
     public DialogueState(string text)
     {
-        shouldRequeue = false;
         //On creation
+        priority = combatManager.PriorityDialogue;
     }
     public void EnterState()
     {
@@ -25,7 +25,7 @@ public class DialogueState : CombatState, ICombatState
         // Wait for animations to finish
         if (true)
         {
-            NextState(); //Note: StateUpdate() will not fire again once NextState() is triggered 
+            NextState(false); //Note: StateUpdate() will not fire again once NextState() is triggered 
         }
     }
 

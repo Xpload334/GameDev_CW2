@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CombatState: MonoBehaviour
 {
+    protected int priority;
     protected CombatManager combatManager;
     public bool isRunning; //If the state is currently running
-    public bool shouldRequeue; //If the state should be queued at the end of the loop once it finishes
-    
+
     public CombatState(CombatManager combatManager)
     {
         this.combatManager = combatManager;
@@ -16,9 +16,15 @@ public class CombatState: MonoBehaviour
     {
         combatManager = FindObjectOfType<CombatManager>();
     }
-
-    public void NextState()
+    
+    /*
+     * Move to the next state.
+     * Calls ExitState on this state and EnterState on the next state.
+     *
+     * Requeue this state into the queue if requeue = true, at the given priority
+     */
+    public void NextState(bool requeue)
     {
-        combatManager.NextState(shouldRequeue);
+        combatManager.NextState(requeue, priority);
     }
 }

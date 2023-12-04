@@ -1,23 +1,27 @@
 ﻿using Unity.VisualScripting;
 
 /*
- * Give player cards
- * Give enemy cards
+ * Refill player energy
+ * Draw player card
  *
- * Run animations for giving cards
+ *
+ * (Drain energy from energy drain effects)
  */
-public class StartState : CombatState, ICombatState
+public class PlayerTurnStart : CombatState, ICombatState
 {
-    public StartState()
+    public PlayerTurnStart()
     {
         priority = combatManager.PriorityDefault;
     }
     public void EnterState()
     {
         isRunning = true;
-        combatManager.SetupDecks();
         
-        //if current battle is a tutorial, enqueue tutorial states
+        //Set max energy
+        combatManager.playerMaxEnergy = combatManager.playerStartEnergy + combatManager.turnNumber;
+        combatManager.playerEnergy = combatManager.playerMaxEnergy;
+        
+        if(combatManager.turnNumber != 0) combatManager.PlayerDrawCard();
     }
 
     public void StateUpdate()
@@ -28,7 +32,6 @@ public class StartState : CombatState, ICombatState
             NextState(false); //Note: StateUpdate() will not fire again once NextState() is triggered 
         }
     }
-    
 
     public void ExitState()
     {
