@@ -1,28 +1,24 @@
 ﻿using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombatState: MonoBehaviour
 {
     protected CombatManager combatManager;
-    public bool isRunning;
-
-    protected CombatState(CombatManager combatManager)
+    public bool isRunning; //If the state is currently running
+    public bool shouldRequeue; //If the state should be queued at the end of the loop once it finishes
+    
+    public CombatState(CombatManager combatManager)
     {
         this.combatManager = combatManager;
     }
-    
-    public void OnStateEnter()
+    protected CombatState()
     {
-        isRunning = true;
+        combatManager = FindObjectOfType<CombatManager>();
     }
 
-    public virtual void OnStateUpdate()
+    public void NextState()
     {
-        // throw new NotImplementedException();
-    }
-
-    public void OnStateExit()
-    {
-        isRunning = false;
+        combatManager.NextState(shouldRequeue);
     }
 }

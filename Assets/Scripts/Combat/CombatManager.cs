@@ -25,9 +25,12 @@ public class CombatManager : MonoBehaviour
      */
     
     //Use ints for priorities
-    public PriorityQueue<CombatState, int> stateQueue = new PriorityQueue<CombatState, int>();
+    public ICombatState currentState;
+    public PriorityQueue<ICombatState, int> stateQueue = new PriorityQueue<ICombatState, int>();
     // public Stack<CombatState> stateStack = new Stack<CombatState>();
-
+    public static int PRIORITY_DEFAULT = 0;
+    public static int PRIORITY_DIALOGUE = 1;
+    
     public CardManager playerDeck;
     public int playerStartEnergy = 2;
     public int playerStartCards = 6;
@@ -46,9 +49,12 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentState != null)
+        {
+            currentState.StateUpdate();
+        }
     }
-
+    
     public void SetupDecks()
     {
         SetupDecks(6, 2, 6, 2);
@@ -81,6 +87,36 @@ public class CombatManager : MonoBehaviour
     }
     
     
+    public void SetupStates()
+    {
+        
+    }
 
+    /**
+     * Exit the current state and enqueue the next state
+     */
+    public void NextState(bool enqueue)
+    {
+        //Exit current state
+        currentState.ExitState();
+        if (enqueue)
+        {
+            stateQueue.Enqueue(currentState, 1);
+        }
+        
+        //Enter next state
+        currentState = stateQueue.Dequeue();
+        currentState.EnterState();
+    }
 
+    public void EnqueueState(ICombatState state, int priority)
+    {
+        stateQueue.Enqueue(state, priority);
+    }
+
+    public void AddDialogue(string text)
+    {
+        EnqueueState(new DialogueState(text), PRIORITY_DIALOGUE);
+    }
+    
 }
