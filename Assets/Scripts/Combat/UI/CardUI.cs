@@ -5,27 +5,26 @@
 
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class CardUI
+public class CardUI : MonoBehaviour
 {
+    private CardUIAnimationController _animationController;
+    
     public Card card; //Use to pull stats
     public bool isSide1 = true;
     
-    public TMP_Text energyCostText;
-    public Image cardImage;
-    public TMP_Text description;
-
-
-    public void ConstructCardUI(Card card)
-    {
-        this.card = card;
-
-        //Build card UI from cardstats
-        energyCostText.text = card.energyCost.ToString();
-        
-    }
-
+    [Header("Side 1")]
+    public TMP_Text energyCostText1;
+    public Image cardImage1;
+    public TMP_Text description1;
+    
+    [Header("Side 1")]
+    public TMP_Text energyCostText2;
+    public Image cardImage2;
+    public TMP_Text description2;
+    
     public bool FlipCard()
     {
         if (card.isDoubleSided) return isSide1;
@@ -35,26 +34,14 @@ public class CardUI
 
         return isSide1;
     }
-
-    public void ShowCardSide()
-    {
-        string description = "";
-        if (isSide1)
-        {
-            description = ConstructDescription(card.stats1);
-            cardImage.sprite = card.sprite1;
-        }
-        else
-        {
-            description = ConstructDescription(card.stats2);
-            cardImage.sprite = card.sprite2;
-        }
-    }
-
+    
     public string ConstructDescription(List<CardEffect> cardEffects)
     {
         return "";
     }
 
-
+    public void CardPressed()
+    {
+        Debug.Log("Card pressed: "+card.name1);
+    }
 }
