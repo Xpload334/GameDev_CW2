@@ -10,6 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04fd6d412d35c1e49af841dae554f408, type: 3}
-  m_Name: Test
+  m_Name: Test 2
   m_EditorClassIdentifier: 
-  text: 
+  speaker: Someone
+  text: Consectetur purus ut faucibus pulvinar elementum integer enim. Sollicitudin
+    tempor id eu nisl nunc mi. Sed enim ut sem viverra aliquet.
+  notes: 
+  nextObject: {fileID: 11400000, guid: d24fb03177694fd49bcc403824e4c6a3, type: 2}
