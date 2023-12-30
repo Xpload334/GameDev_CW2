@@ -54,13 +54,13 @@ public class CardManager : MonoBehaviour
         return card;
     }
 
-    public void PlayCard(Card card, bool isBackSide)
+    public void PlayCard(Card card, bool isSide1)
     {
         //Check if card exists in hand
         if (cardsInHand.Contains(card))
         {
             //Play card effect
-            PlayCardEffects(card, isBackSide);
+            PlayCardEffects(card, isSide1);
 
             //Remove card from hand
             cardsInHand.Remove(card);
@@ -87,14 +87,14 @@ public class CardManager : MonoBehaviour
     /**
      * Play the effects of a given card
      */
-    void PlayCardEffects(Card card, bool isBackSide)
+    void PlayCardEffects(Card card, bool isSide1)
     {
         //Access combat manager
         //Remove card energy
         int energy = card.energyCost;
         
         //Select correct card side
-        var effects = isBackSide ? card.stats2 : card.stats1;
+        var effects = isSide1 ? card.stats1 : card.stats2;
         
         //Play each card effect
         foreach (var varCardEffect in effects)

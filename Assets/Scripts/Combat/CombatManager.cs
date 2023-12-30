@@ -56,6 +56,9 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
+         * Call state update
+         */
         if (currentState != null)
         {
             currentState.StateUpdate();
@@ -139,6 +142,11 @@ public class CombatManager : MonoBehaviour
     public void SetPlayerCardsActive(bool isActive)
     {
         
+    }
+
+    public void LogStateQueue()
+    {
+        Debug.Log(stateQueue.ToString());
     }
     
     

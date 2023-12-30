@@ -6,14 +6,17 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CardUI : MonoBehaviour
 {
-    private CardUIAnimationController _animationController;
+    [SerializeField] private CardUIAnimationController animationController;
+    public CombatManager combatManager;
     
     public Card card; //Use to pull stats
     public bool isSide1 = true;
+    public Button button;
     
     [Header("Side 1")]
     public TMP_Text energyCostText1;
@@ -27,11 +30,19 @@ public class CardUI : MonoBehaviour
     
     public bool FlipCard()
     {
-        if (card.isDoubleSided) return isSide1;
+        // if (card.isDoubleSided) return isSide1;
         
         //Flip side
         isSide1 = !isSide1;
 
+        if (isSide1)
+        {
+            animationController.StartFlipSide1();
+        }
+        else
+        {
+            animationController.StartFlipSide2();
+        }
         return isSide1;
     }
     
@@ -42,6 +53,13 @@ public class CardUI : MonoBehaviour
 
     public void CardPressed()
     {
-        Debug.Log("Card pressed: "+card.name1);
+        Debug.Log("Card pressed");
+        // if (!combatManager.playerDeck.cardsInHand.Contains(card)) return;
+        
+        
+        // Debug.Log("Playing card");
+        // combatManager.playerDeck.PlayCard(card, isSide1);
     }
+
+    
 }
