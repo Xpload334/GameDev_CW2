@@ -6,9 +6,9 @@ namespace CombatSimple
     public class Attack : ScriptableObject
     {
         public DamageType damageType;
-        public float damageMax = 10;
-        public float damageNormal = 5;
-        public float damageMin = 2;
+        private float damageMax = 10;
+        private float damageNormal = 5;
+        private float damageMin = 2;
         public Dialogue dialogue;
 
         public float GetDamage(DamageType opposingDamageType)

@@ -60,9 +60,9 @@ public class DialogueManager : MonoBehaviour
         DisplayNext();
     }
 
-    public void StartDialogue(Dialogue dialogue, UnityAction action)
+    public void StartDialogue(Dialogue dialogue, UnityAction onFinishedAction)
     {
-        dialogueFinishedAction = action;
+        dialogueFinishedAction = onFinishedAction;
         StartDialogue(dialogue);
     }
 

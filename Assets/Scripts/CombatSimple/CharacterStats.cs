@@ -19,8 +19,20 @@ namespace CombatSimple
         public float maxActionPoints = 100;
         public float currentActionPoints = 0;
         public List<ActionsBehaviour> actionBehaviours;
+        public ActionsBehaviour defaultBehaviour; //Behaviour for when an action doesn't do anything
         
         [TextArea(15,20)]
         public string description;
+
+        public void Initialise()
+        {
+            currentHealth = maxHealth;
+            foreach (var behaviour in actionBehaviours)
+            {
+                behaviour.Initialise();
+            }
+        }
+        
+        
     }
 }

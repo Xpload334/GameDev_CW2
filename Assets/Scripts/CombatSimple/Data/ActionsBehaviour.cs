@@ -7,15 +7,27 @@ namespace CombatSimple
     public class ActionsBehaviour : ScriptableObject
     {
         public ActType actType;
-        [Header("First Action")] 
+        public int behaviourIndex;
         public List<ActionsBehaviourEntry> behaviours;
 
-
-        [System.Serializable]
-        public class ActionsBehaviourEntry
+        public void Initialise()
         {
-            public float actionPointsGain;
-            public DialogueObject dialogueObject;
+            behaviourIndex = 0;
+        }
+        
+        /*
+         * Return the latest actions behaviour entry
+         */
+        public ActionsBehaviourEntry DoAction()
+        {
+            var entry = behaviours[behaviourIndex];
+
+            //If reached last entry, always return last entry
+            if (behaviourIndex < (behaviours.Count - 1))
+            {
+                behaviourIndex++;
+            }
+            return entry;
         }
     }
 }

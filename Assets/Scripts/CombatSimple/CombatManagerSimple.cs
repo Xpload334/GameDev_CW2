@@ -19,6 +19,7 @@ namespace CombatSimple
 
         private void Start()
         {
+            StartCombat();
             // throw new NotImplementedException();
         }
 
@@ -27,43 +28,44 @@ namespace CombatSimple
             // throw new NotImplementedException();
         }
 
-        public void NextState()
-        {
-            previousState = currentState;
-            switch (currentState)
-            {
-                case CombatStateSimple.Start:
-                    StartCombat();
-                    break;
-                case CombatStateSimple.Dialogue: //Unused
-                    break;
-                /////////////
-                //Combat loop
-                case CombatStateSimple.PlayerTurn:
-                    EndPlayerTurn();
-                    break;
-                case CombatStateSimple.PlayerTurnEnd:
-                    StartEnemyTurn();
-                    break;
-                case CombatStateSimple.EnemyTurn:
-                    EndEnemyTurn();
-                    break;
-                case CombatStateSimple.EnemyTurnEnd:
-                    StartPlayerTurn();
-                    break;
-                //////////////
-                case CombatStateSimple.WinAttack:
-                    
-                    break;
-                case CombatStateSimple.WinAct:
-                    break;
-                case CombatStateSimple.Lose:
-                    RestartCombat();
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+        // public void NextState()
+        // {
+        //     previousState = currentState;
+        //     switch (currentState)
+        //     {
+        //         case CombatStateSimple.Start:
+        //             StartCombat();
+        //             break;
+        //         case CombatStateSimple.Dialogue: //Unused
+        //             break;
+        //         /////////////
+        //         //Combat loop
+        //         case CombatStateSimple.PlayerTurn:
+        //             EndPlayerTurn();
+        //             break;
+        //         case CombatStateSimple.PlayerTurnEnd:
+        //             StartEnemyTurn();
+        //             break;
+        //         case CombatStateSimple.EnemyTurn:
+        //             EndEnemyTurn();
+        //             break;
+        //         case CombatStateSimple.EnemyTurnEnd:
+        //             StartPlayerTurn();
+        //             break;
+        //         //////////////
+        //         case CombatStateSimple.WinAttack:
+        //             StartWinAttack();
+        //             break;
+        //         case CombatStateSimple.WinAct:
+        //             StartWinAct();
+        //             break;
+        //         case CombatStateSimple.Lose:
+        //             StartLose();
+        //             break;
+        //         default:
+        //             throw new ArgumentOutOfRangeException();
+        //     }
+        // }
 
         public void SetCurrentState(CombatStateSimple state)
         {
@@ -78,10 +80,11 @@ namespace CombatSimple
             //If there is any starting dialogue, play it
             if (startingDialogue != null)
             {
-                dialogueManager.StartDialogue(startingDialogue, () =>
-                {
-                            
-                });
+                dialogueManager.StartDialogue(startingDialogue, StartCombat);
+            }
+            else
+            {
+                StartCombat();
             }
         }
         
@@ -90,6 +93,7 @@ namespace CombatSimple
          */
         public void StartCombat()
         {
+            Debug.Log("Starting combat");
             StartPlayerTurn();
         }
 
@@ -103,6 +107,12 @@ namespace CombatSimple
         {
             //Disable player UI
             SetCurrentState(CombatStateSimple.PlayerTurnEnd);
+            //Check if enemy dead
+            if (enemyCharacter.isDead)
+            {
+                //Move to win attack
+                StartWinAttack();
+            }
         }
 
         public void StartEnemyTurn()
@@ -113,34 +123,95 @@ namespace CombatSimple
         public void EndEnemyTurn()
         {
             SetCurrentState(CombatStateSimple.EnemyTurnEnd);
+            //Check if player is alive
+            if (playerCharacter.isDead)
+            {
+                
+            }
         }
 
-        // public void StartDialogueState()
-        // {
-        //     //Interrupts a state then returns to the previous state
-        //     SetCurrentState(CombatStateSimple.Dialogue);
-        //     dialogueManager.StartDialogue();
-        // }
+        void StartWinAttack()
+        {
+            if (winDialogueAttack != null)
+            {
+                dialogueManager.StartDialogue(winDialogueAttack, WinAttack);
+            }
+        }
+        
+        void StartWinAct()
+        {
+            if (winDialogueAct != null)
+            {
+                dialogueManager.StartDialogue(winDialogueAct, WinAct);
+            }
+        }
 
+        void StartLose()
+        {
+            if (losingDialogue != null)
+            {
+                dialogueManager.StartDialogue(losingDialogue, RestartCombat);
+            }
+        }
+        
         /*
          * Call when the player loses
+         *
+         * Restart scene
          */
         public void RestartCombat()
         {
-            
+            Debug.Log("Restarting combat");
+        }
+
+        void WinAttack()
+        {
+            //Set enemy attack to true in PlayerPrefs
+            //Move to next scene
+        }
+
+        void WinAct()
+        {
+            //Set enemy attack to false in PlayerPrefs
+            //Move to next scene
         }
         
         
 
 
+        /*
+         * Player performs an attack
+         */
         public void AttackPlayer(Attack attack)
         {
+            Debug.Log("Player attacks with "+attack+"("+attack.damageType+")");
+            float damage = attack.GetDamage(enemyCharacter.currentDamageType);
             
         }
 
+        /*
+         * Player performs a given action to the enemy.
+         *
+         * Check 
+         */
+        public void ActPlayer(ActType actType)
+        {
+            Debug.Log("Player acts with "+actType);
+            ActionsBehaviourEntry entry = enemyCharacter.GetActionEntry(actType);
+            dialogueManager.StartDialogue(entry.dialogue, () =>
+            {
+                enemyCharacter.AddActionPoints(entry.actionPointsGain);
+            });
+            
+        }
+
+        /*
+         * Enemy performs an attack
+         */
         public void AttackEnemy(Attack attack)
         {
-            
+            Debug.Log("Enemy attacks with "+attack+"("+attack.damageType+")");
+            float damage = attack.GetDamage(playerCharacter.currentDamageType);
         }
 
         float GetAttackDamage(Attack attack, DamageType opposingDamageType)
