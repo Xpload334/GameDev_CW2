@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartDialogueOnStart : MonoBehaviour
 {
-    public DialogueObject dialogueObject;
+    public Dialogue dialogue;
 
     private DialogueManager _dialogueManager;
     // Start is called before the first frame update
@@ -12,7 +12,7 @@ public class StartDialogueOnStart : MonoBehaviour
     {
         _dialogueManager = FindObjectOfType<DialogueManager>();
         
-        _dialogueManager.StartDialogue(dialogueObject);
+        _dialogueManager.StartDialogue(dialogue);
     }
 
     // Update is called once per frame

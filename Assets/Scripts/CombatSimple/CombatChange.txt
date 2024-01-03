@@ -1,0 +1,4 @@
+﻿Combat Changes Due to Time Constraints
+-----------------------------------------
+Changing to a Rock-Paper-Scissors turn based combat for fighting
+- Based on what enemy picks, do more or less damage
