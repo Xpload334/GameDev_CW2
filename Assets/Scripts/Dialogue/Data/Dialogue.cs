@@ -10,6 +10,7 @@ public class Dialogue : ScriptableObject
     public class DialogueEntry
     {
         public string speaker;
+        // public Sprite speakerSprite;
         [TextArea(5,10)]
         public string text;
     }

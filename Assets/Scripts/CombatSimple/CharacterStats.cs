@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CombatSimple
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CombatSimple", order = 1)]
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Character Stats", order = 1)]
     public class CharacterStats : ScriptableObject
     {
         public string name;
@@ -15,10 +15,10 @@ namespace CombatSimple
         [Header("Attacks")] 
         public List<Attack> attacks;
         
-
         [Header("Actions")] 
         public float maxActionPoints = 100;
         public float currentActionPoints = 0;
+        public List<ActionsBehaviour> actionBehaviours;
         
         [TextArea(15,20)]
         public string description;
