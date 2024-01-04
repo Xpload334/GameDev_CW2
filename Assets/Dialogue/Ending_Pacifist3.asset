@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Ending_Pacifist3
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: Palpatinish
+    text: You! This is your fault! My plan, my spell, my life's work, ruined! All
+      because you couldn't bring yourself to hurt a single. Living. Thing.
+  nextObject: {fileID: 11400000, guid: 1e89cedf1a40af2449fdd1e5fc1ed3b9, type: 2}
+  notes: 

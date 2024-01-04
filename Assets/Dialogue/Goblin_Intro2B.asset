@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Goblin_Intro2B
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: 
+    text: Still, you forge on, until you notice a plume of some a small distance
+      away along the path.
+  nextObject: {fileID: 11400000, guid: 1fdd7dd2704af7646a73dd8bee8a15c8, type: 2}
+  notes: 
