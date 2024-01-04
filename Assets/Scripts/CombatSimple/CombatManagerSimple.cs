@@ -103,6 +103,9 @@ namespace CombatSimple
             SetCurrentState(CombatStateSimple.PlayerTurn);
         }
 
+        /*
+         * End player turn button
+         */
         public void EndPlayerTurn()
         {
             //Disable player UI
@@ -112,6 +115,17 @@ namespace CombatSimple
             {
                 //Move to win attack
                 StartWinAttack();
+            }
+            //Check if enemy spared
+            else if (enemyCharacter.isSpared)
+            {
+                //Move to win act
+                StartWinAct();
+            }
+            //Else, start enemy turn
+            else
+            {
+                StartEnemyTurn();
             }
         }
 

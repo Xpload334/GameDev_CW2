@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actType: 0
   behaviourIndex: 0
-  behaviours: []
+  behaviours:
+  - actionPointsGain: 0
+    dialogue: {fileID: 0}
+  - actionPointsGain: 0
+    dialogue: {fileID: 0}
