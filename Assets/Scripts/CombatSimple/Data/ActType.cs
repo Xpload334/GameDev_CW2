@@ -7,6 +7,5 @@
         Touch,
         Flatter,
         Conversation,
-        Hug
     }
 }

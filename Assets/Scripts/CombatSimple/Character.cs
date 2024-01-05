@@ -10,6 +10,8 @@ namespace CombatSimple
         public CombatManagerSimple combatManager;
         public DamageType currentDamageType;
         public CharacterStats characterStats;
+
+        public bool isEnemy;
         public bool isDead;
         public bool isSpared;
 
@@ -26,6 +28,18 @@ namespace CombatSimple
         public Attack AttackRandom()
         {
             return characterStats.attacks[Random.Range(0, characterStats.attacks.Count - 1)];
+        }
+
+        public void PlayAttack(Attack attack)
+        {
+            if (isEnemy)
+            {
+                combatManager.PlayerAttacksEnemy(attack);
+            }
+            else
+            {
+                combatManager.EnemyAttacksPlayer(attack);
+            }
         }
         
 
@@ -82,6 +96,11 @@ namespace CombatSimple
         public float GetActionPoints()
         {
             return characterStats.currentActionPoints;
+        }
+
+        public void SetActionPoints(float points)
+        {
+            characterStats.currentActionPoints = points;
         }
 
         public float GetMaxActionPoints()

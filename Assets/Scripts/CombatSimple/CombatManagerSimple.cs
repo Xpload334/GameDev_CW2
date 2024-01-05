@@ -1,4 +1,5 @@
 ﻿using System;
+using CombatSimple.UI;
 using UnityEngine;
 
 namespace CombatSimple
@@ -17,9 +18,16 @@ namespace CombatSimple
         public Dialogue winDialogueAct;
         public Dialogue losingDialogue;
 
+        [Header("Dialogue Attacks")] 
+        public Dialogue dialogueAttackedEnemyWithActPoints;
+
+        [Header("UI")] 
+        public CharacterUI playerUI;
+        public CharacterUI enemyUI;
+
         private void Start()
         {
-            StartCombat();
+            StartState();
             // throw new NotImplementedException();
         }
 
@@ -77,6 +85,7 @@ namespace CombatSimple
          */
         public void StartState()
         {
+            SetCurrentState(CombatStateSimple.Start);
             //If there is any starting dialogue, play it
             if (startingDialogue != null)
             {
@@ -140,7 +149,12 @@ namespace CombatSimple
             //Check if player is alive
             if (playerCharacter.isDead)
             {
-                
+                StartLose();
+            }
+            else
+            {
+                //Set turn to player turn
+                StartPlayerTurn();
             }
         }
 
@@ -176,6 +190,7 @@ namespace CombatSimple
         public void RestartCombat()
         {
             Debug.Log("Restarting combat");
+            //Reload scene
         }
 
         void WinAttack()
@@ -191,15 +206,32 @@ namespace CombatSimple
         }
         
         
-
-
         /*
          * Player performs an attack
          */
-        public void AttackPlayer(Attack attack)
+        public void PlayerAttacksEnemy(Attack attack)
         {
             Debug.Log("Player attacks with "+attack+"("+attack.damageType+")");
             float damage = attack.GetDamage(enemyCharacter.currentDamageType);
+
+            //If enemy attacked when they have action points (betrayed)
+            if (enemyCharacter.GetActionPoints() > 0)
+            {
+                dialogueManager.StartDialogue(dialogueAttackedEnemyWithActPoints, () =>
+                {
+                    enemyCharacter.TakeDamage(damage);
+                    enemyCharacter.SetActionPoints(0);
+                    UpdateEnemyUI();
+                });
+            }
+            else
+            {
+                dialogueManager.StartDialogue(attack.dialogue, () =>
+                {
+                    enemyCharacter.TakeDamage(damage);
+                    UpdateEnemyUI();
+                });
+            }
             
         }
 
@@ -215,6 +247,7 @@ namespace CombatSimple
             dialogueManager.StartDialogue(entry.dialogue, () =>
             {
                 enemyCharacter.AddActionPoints(entry.actionPointsGain);
+                UpdateEnemyUI();
             });
             
         }
@@ -222,15 +255,32 @@ namespace CombatSimple
         /*
          * Enemy performs an attack
          */
-        public void AttackEnemy(Attack attack)
+        public void EnemyAttacksPlayer(Attack attack)
         {
             Debug.Log("Enemy attacks with "+attack+"("+attack.damageType+")");
             float damage = attack.GetDamage(playerCharacter.currentDamageType);
+            dialogueManager.StartDialogue(attack.dialogue, () =>
+            {
+                playerCharacter.TakeDamage(damage);
+                UpdatePlayerUI();
+            });
         }
 
         float GetAttackDamage(Attack attack, DamageType opposingDamageType)
         {
             return attack.GetDamage(opposingDamageType);
+        }
+
+        void UpdateEnemyUI()
+        {
+            enemyUI.UpdateHealth(enemyCharacter.GetHealth());
+            enemyUI.UpdateActionPoints(enemyCharacter.GetActionPoints());
+        }
+
+        void UpdatePlayerUI()
+        {
+            playerUI.UpdateHealth(playerCharacter.GetHealth());
+            playerUI.UpdateActionPoints(playerCharacter.GetActionPoints());
         }
     }
 }
