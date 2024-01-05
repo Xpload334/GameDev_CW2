@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Ending_Apocalypse
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: 
+    text: You strike down the wizard, and he falls to the ground, limp.
+  - speaker: 
+    text: Despite this, the malevolent power you felt before is still present.
+  - speaker: 
+    text: Proving your concerns, you hear cackling from the slumped body of Palpatinish.
+  - speaker: 
+    text: With his remaining strength, he casts a final spell before disappearing
+      entirely.
+  - speaker: 
+    text: A huge, black cloud smothers the sky as heavy mauve rain begins to fall.
+  - speaker: 
+    text: You may have bested the wizard, but you brought him too much power, and
+      he was able to complete his plans with his dying breath.
+  - speaker: 
+    text: Apocalypse ending (4/4)
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
+  nextObject: {fileID: 0}
+  notes: 

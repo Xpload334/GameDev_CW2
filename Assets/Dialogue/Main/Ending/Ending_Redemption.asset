@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Ending_Redemption
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: 
+    text: You land a final blow on the wizard and he falls to the ground, defeated.
+  - speaker: 
+    text: You prepare to escort him back to Castle Leonito, but you wonder if you
+      have possibly done enough to right your wrongs.
+  - speaker: 
+    text: As you arrive, Palpatinish is taken away to be imprisoned and the King
+      addresses and congratulates you on your successful quest, then dismisses you.
+  - speaker: 
+    text: It appears all is back to normal.
+  - speaker: 
+    text: Redemption ending (2/4)
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
+  nextObject: {fileID: 0}
+  notes: 

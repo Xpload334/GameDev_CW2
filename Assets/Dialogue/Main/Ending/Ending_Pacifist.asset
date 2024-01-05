@@ -17,11 +17,22 @@ MonoBehaviour:
     text: What?! That's impossible!
   - speaker: 
     text: He desperately starts chanting again, but to no avail.
-  - speaker: 
+  - speaker: Palpatinish
     text: You! This is your fault! My plan, my spell, my life's work, ruined! All
       because you couldn't bring yourself to hurt a single. Living. Thing.
   - speaker: 
     text: He falls to his knees, powerless. Without any hate energy to siphon for
       his spells, he concedes, though still continues to whine.
+  - speaker: 
+    text: You escort him back to Castle Leonito, where he will be imprisoned for
+      his crimes.
+  - speaker: 
+    text: Your quest has concluded, but as you recount the tale to the King, he officially
+      sanctions all being to co-exist in Shephardia.
+  - speaker: 
+    text: Pacifist ending (1/4)
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   nextObject: {fileID: 0}
   notes: 
