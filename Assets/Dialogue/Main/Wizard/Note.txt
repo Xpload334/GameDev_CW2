@@ -1,0 +1,11 @@
+Quick note on Wizard dialogue:
+
+Depending on when you want portraits and stuff to appear (triggered via a UnityEvent) split the Dialogue objects.
+This way you can have lists of dialogue and still dynamically trigger events.
+
+e.g.
+For an intro_1 you can start with the Goblin and the Hero talking.
+Then using an event, make the portraits disappear.
+Then start intro_2
+Then using an event, make the portrait change
+Then start intro_3 with the wizard talking

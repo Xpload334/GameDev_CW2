@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Wizard_IntroA_1
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: 
+    text: You make your way through the seemingly deserted grounds, toward the singular
+      door to the tower.
+  - speaker: 
+    text: To your surprise, it's not even locked, and opens with a simple push.
+  - speaker: Goblin
+    text: Here is where I leave you, human. Good luck on your quest, but I must head
+      back to my camp now.
+  - speaker: 
+    text: He starts to walk back, though he quickly turns around and offers you his
+      spear and a small berry-stained pouch.
+  - speaker: Goblin
+    text: You might need these, human. I can make more for myself later.
+  - speaker: 
+    text: Thanking the goblin, you cautiously make your way up the spiral staircase,
+      and you start to hear a deep humming sound, getting louder as you ascend further
+      and further.
+  - speaker: 
+    text: Reaching the apex of the tower you see a dark figure with his back turned
+      to you.
+  - speaker: 
+    text: '"Palpatinish", you say, as the figure turns towards you.'
+  - speaker: Palpatinish
+    text: I had expected King Leonito to send a force a bit... taller. You're out
+      of your depth, you know.
+  - speaker: Palpatinish
+    text: I'm in the middle of conjuring the most powerful spell ever imagined! An
+      incantation so vile it'll turn even the best of friends into mortal enemies.
+  - speaker: Palpatinish
+    text: And thanks to you, it'll go off in just a minute, once I've finished gathering
+      all of that lovely hate energy from you.
+  - speaker: 
+    text: He starts to glow with a malevolent aura, rising into the air.
+  - speaker: 
+    text: You feel your encounters rush before your eyes, but they are fond memories.
+  - speaker: 
+    text: Palpatinish starts chanting in an unknown tongue, but as he finishes his
+      chant and raises his arms nothing happens.
+  nextObject: {fileID: 11400000, guid: a4177e479c7e66b48b3e33c3a815c7e0, type: 2}
+  notes: 

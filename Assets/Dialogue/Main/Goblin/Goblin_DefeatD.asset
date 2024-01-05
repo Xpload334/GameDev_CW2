@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Goblin_DefeatD
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: 
+    text: Reeling from your blow, the goblin falls to the ground.
+  - speaker: Goblin
+    text: I'm sorry, Scruffy, I couldn't protect you...
+  - speaker: 
+    text: He slumps, out cold but still breathing, as you here a soft whimper come
+      from the small house.
+  - speaker: 
+    text: With the obstacle now removed from your path, you continue into the dense
+      foliage covering the lost path to the tower.
+  - speaker: 
+    text: You travel for hours, constantly doubting whether you'd seen the trees
+      around you before.
+  - speaker: 
+    text: Finally, after going round in circles at least three times you see the
+      light of a clearing. Heading towards it, you realise it isn't just a clearing,
+      it's the grounds surrounding the Tower of Darkness.
+  nextObject: {fileID: 0}
+  notes: 

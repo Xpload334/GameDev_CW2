@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Wolf_Befriend
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: 
+    text: The wolf is wags its tail before slowly approaching with a limp. It shows
+      you an arrowhead stuck into one of its paws.
+  - speaker: 
+    text: After removing the arrowhead and bandaging the limb you give the wolf a
+      quick pat on the head before continuing along the path.
+  - speaker: 
+    text: To your surprise, the wolf follows you. It appears you have made a friend
+      on this adventure.
+  nextObject: {fileID: 0}
+  notes: 

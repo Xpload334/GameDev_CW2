@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Goblin_IntroA
+  m_EditorClassIdentifier: 
+  entries:
+  - speaker: 
+    text: The forest gets much denser and in places you struggle to find the path
+      amoung the underbrush.
+  - speaker: 
+    text: Still, you forge on, until you notice a plume of some a small distance
+      away along the path.
+  - speaker: 
+    text: Getting closer, you see a primitive wooden hut with a much smaller house
+      beside it, and a goblin sitting at a campfire, eating a handful of berries
+      and nuts off of a metal plate.
+  - speaker: 
+    text: You seem to have startled the goblin, who recognises your armour and almost
+      falls over getting up, before rushing to the small house and checking inside.
+  - speaker: 
+    text: He quickly grabs a shoddy-looking spear and shield from the larger hut
+      before confronting you.
+  nextObject: {fileID: 0}
+  notes: Pacifist
