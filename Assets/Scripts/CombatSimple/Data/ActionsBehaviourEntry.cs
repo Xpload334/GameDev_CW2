@@ -3,7 +3,7 @@
     [System.Serializable]
     public class ActionsBehaviourEntry
     {
-        public float actionPointsGain;
+        public int actionPointsGain;
         public Dialogue dialogue;
     }
 }

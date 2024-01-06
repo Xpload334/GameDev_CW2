@@ -15,9 +15,11 @@ MonoBehaviour:
   name: 
   maxHealth: 50
   currentHealth: 50
-  attacks: []
+  attacks:
+  - {fileID: 0}
   maxActionPoints: 100
   currentActionPoints: 0
-  actionBehaviours: []
+  actionBehaviours:
+  - {fileID: 11400000, guid: 1eb3af1de9489f742ab03339d9924a42, type: 2}
   defaultBehaviour: {fileID: 0}
   description: 

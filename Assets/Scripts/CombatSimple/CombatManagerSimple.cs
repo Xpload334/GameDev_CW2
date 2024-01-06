@@ -24,6 +24,7 @@ namespace CombatSimple
         [Header("UI")] 
         public CharacterUI playerUI;
         public CharacterUI enemyUI;
+        public PlayerMenuUI playerMenuUI;
 
         private void Start()
         {
@@ -89,6 +90,7 @@ namespace CombatSimple
             //If there is any starting dialogue, play it
             if (startingDialogue != null)
             {
+                playerMenuUI.DisableUI();
                 dialogueManager.StartDialogue(startingDialogue, StartCombat);
             }
             else
@@ -110,12 +112,13 @@ namespace CombatSimple
         {
             //Enable player UI
             SetCurrentState(CombatStateSimple.PlayerTurn);
+            playerMenuUI.EnableUI();
         }
 
         /*
          * End player turn button
          */
-        public void EndPlayerTurn()
+        public void EndPlayerTurn(Attack enemyAttack)
         {
             //Disable player UI
             SetCurrentState(CombatStateSimple.PlayerTurnEnd);
@@ -134,11 +137,11 @@ namespace CombatSimple
             //Else, start enemy turn
             else
             {
-                StartEnemyTurn();
+                StartEnemyTurn(enemyAttack);
             }
         }
 
-        public void StartEnemyTurn()
+        public void StartEnemyTurn(Attack enemyAttack)
         {
             SetCurrentState(CombatStateSimple.EnemyTurn);
         }
@@ -212,7 +215,16 @@ namespace CombatSimple
         public void PlayerAttacksEnemy(Attack attack)
         {
             Debug.Log("Player attacks with "+attack+"("+attack.damageType+")");
-            float damage = attack.GetDamage(enemyCharacter.currentDamageType);
+            playerCharacter.ChangeDamageType(attack.damageType);
+            // playerCharacter.currentDamageType = attack.damageType;
+            
+            //Choose enemy attack type
+            var enemyAttack = enemyCharacter.AttackRandom();
+            var enemyDamageType = enemyAttack.damageType;
+            // enemyCharacter.currentDamageType = enemyDamageType;
+            enemyCharacter.ChangeDamageType(enemyDamageType);
+            
+            var damage = attack.GetDamage(enemyCharacter.currentDamageType);
 
             //If enemy attacked when they have action points (betrayed)
             if (enemyCharacter.GetActionPoints() > 0)
@@ -222,6 +234,8 @@ namespace CombatSimple
                     enemyCharacter.TakeDamage(damage);
                     enemyCharacter.SetActionPoints(0);
                     UpdateEnemyUI();
+                    
+                    EndPlayerTurn(enemyAttack);
                 });
             }
             else
@@ -230,6 +244,8 @@ namespace CombatSimple
                 {
                     enemyCharacter.TakeDamage(damage);
                     UpdateEnemyUI();
+                    
+                    EndPlayerTurn(enemyAttack);
                 });
             }
             
@@ -258,15 +274,16 @@ namespace CombatSimple
         public void EnemyAttacksPlayer(Attack attack)
         {
             Debug.Log("Enemy attacks with "+attack+"("+attack.damageType+")");
-            float damage = attack.GetDamage(playerCharacter.currentDamageType);
+            var damage = attack.GetDamage(playerCharacter.currentDamageType);
             dialogueManager.StartDialogue(attack.dialogue, () =>
             {
                 playerCharacter.TakeDamage(damage);
                 UpdatePlayerUI();
+                EndEnemyTurn();
             });
         }
 
-        float GetAttackDamage(Attack attack, DamageType opposingDamageType)
+        int GetAttackDamage(Attack attack, DamageType opposingDamageType)
         {
             return attack.GetDamage(opposingDamageType);
         }

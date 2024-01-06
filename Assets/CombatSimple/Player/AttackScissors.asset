@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2815b56a714931ac61e2c9488b181d, type: 3}
+  m_Name: AttackScissors
+  m_EditorClassIdentifier: 
+  damageType: 3
+  damageMax: 20
+  damageNormal: 10
+  damageMin: 5
+  dialogue: {fileID: 11400000, guid: 5c175cfea7424b745a3205f46ef9a955, type: 2}

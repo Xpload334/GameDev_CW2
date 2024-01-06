@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   maxHealth: 100
-  currentHealth: 100
-  attacks: []
+  currentHealth: 95
+  attacks:
+  - {fileID: 11400000, guid: 62432e27790b8cb45aa85f1974d07d9c, type: 2}
   maxActionPoints: 100
   currentActionPoints: 0
   actionBehaviours: []

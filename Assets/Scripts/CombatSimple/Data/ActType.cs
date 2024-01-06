@@ -1,5 +1,6 @@
 ﻿namespace CombatSimple
 {
+    [System.Serializable]
     public enum ActType
     {
         Check,

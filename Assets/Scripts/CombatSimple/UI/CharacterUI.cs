@@ -9,6 +9,7 @@ namespace CombatSimple.UI
     {
         public CombatManagerSimple combatManagerSimple;
         public Image portraitImage;
+        public RpsIconUI rpsIconUI;
         
         public TMP_Text healthText;
         public Slider healthSlider;
@@ -35,6 +36,22 @@ namespace CombatSimple.UI
             actionPointsText.text = (_currentActionPoints + " / " + maxActionPoints);
             //Normalise value
             actionSlider.value = (_currentActionPoints / maxActionPoints);
+        }
+
+
+        public void EnableUI()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void DisableUI()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void ChangeDamageType(DamageType type)
+        {
+            rpsIconUI.ChangeDamageType(type);
         }
 
     }

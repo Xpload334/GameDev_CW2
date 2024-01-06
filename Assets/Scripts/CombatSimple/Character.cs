@@ -27,7 +27,17 @@ namespace CombatSimple
 
         public Attack AttackRandom()
         {
-            return characterStats.attacks[Random.Range(0, characterStats.attacks.Count - 1)];
+            //Get list of attacks that can be played
+            var availableAttacks = new List<Attack>();
+            foreach (var attack in characterStats.attacks)
+            {
+                if (characterStats.currentActionPoints >= attack.minActionPoints && characterStats.currentActionPoints < attack.maxActionPoints)
+                {
+                    availableAttacks.Add(attack);
+                }
+            }
+            
+            return availableAttacks[Random.Range(0, availableAttacks.Count - 1)];
         }
 
         public void PlayAttack(Attack attack)
@@ -43,7 +53,7 @@ namespace CombatSimple
         }
         
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(int damage)
         {
             characterStats.currentHealth -= damage;
             Debug.Log("Character "+name+" took "+damage+" damage ["+GetHealth()+" HP]");
@@ -54,7 +64,7 @@ namespace CombatSimple
             }
         }
 
-        public void AddActionPoints(float actionPoints)
+        public void AddActionPoints(int actionPoints)
         {
             characterStats.currentActionPoints += actionPoints;
             Debug.Log("Character "+name+" added "+actionPoints+" action points ["+GetActionPoints()+" AP]");
@@ -98,12 +108,12 @@ namespace CombatSimple
             return characterStats.currentActionPoints;
         }
 
-        public void SetActionPoints(float points)
+        public void SetActionPoints(int points)
         {
             characterStats.currentActionPoints = points;
         }
 
-        public float GetMaxActionPoints()
+        public int GetMaxActionPoints()
         {
             return characterStats.maxActionPoints;
         }
@@ -117,6 +127,12 @@ namespace CombatSimple
         {
             // throw new NotImplementedException();
             Debug.Log("Character "+characterStats.name+" has died");
+        }
+
+        public void ChangeDamageType(DamageType type)
+        {
+            Debug.Log("Character "+characterStats.name+" changed to type "+type);
+            currentDamageType = type;
         }
     }
 }

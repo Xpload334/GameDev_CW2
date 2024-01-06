@@ -9,15 +9,15 @@ namespace CombatSimple
         public string name;
         
         [Header("Health")]
-        public float maxHealth; //Maximum health
-        public float currentHealth; //Current health, when depleted to 0, character is defeated
+        public int maxHealth = 50; //Maximum health
+        public int currentHealth = 50; //Current health, when depleted to 0, character is defeated
 
         [Header("Attacks")] 
         public List<Attack> attacks;
         
         [Header("Actions")] 
-        public float maxActionPoints = 100;
-        public float currentActionPoints = 0;
+        public int maxActionPoints = 100;
+        public int currentActionPoints = 0;
         public List<ActionsBehaviour> actionBehaviours;
         public ActionsBehaviour defaultBehaviour; //Behaviour for when an action doesn't do anything
         

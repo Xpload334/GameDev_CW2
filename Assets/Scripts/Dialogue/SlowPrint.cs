@@ -33,6 +33,8 @@ public class SlowPrint : MonoBehaviour
                 yield return new WaitForSeconds(printSpeed); // Wait for the next letter
             }
         }
+
+        isRunning = false;
     }
 
     // Method to check if a character is punctuation

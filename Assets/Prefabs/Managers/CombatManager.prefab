@@ -44,6 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb8384fdd5c4d68be024e3639c2df14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  previousState: 0
   dialogueManager: {fileID: 0}
   playerCharacter: {fileID: 0}
   enemyCharacter: {fileID: 0}
+  startingDialogue: {fileID: 0}
+  winDialogueAttack: {fileID: 0}
+  winDialogueAct: {fileID: 0}
+  losingDialogue: {fileID: 11400000, guid: 345858c57bfc7f24595e02647b8e044d, type: 2}
+  dialogueAttackedEnemyWithActPoints: {fileID: 11400000, guid: 5fc7a82ad965a3643acca8d51f87f200, type: 2}
+  playerUI: {fileID: 0}
+  enemyUI: {fileID: 0}
