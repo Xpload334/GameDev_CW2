@@ -30,7 +30,7 @@ MonoBehaviour:
     text: Finally, after going round in circles at least three times you see the
       light of a clearing. Heading towards it, you realise it isn't just a clearing,
       it's the grounds surrounding the Tower of Darkness.
-  afterDialogueAction:
+  startDialogueAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000}
@@ -45,5 +45,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   nextObject: {fileID: 0}
   notes: 

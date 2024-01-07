@@ -22,7 +22,7 @@ MonoBehaviour:
   - speaker: 
     text: To your surprise, the wolf follows you. It appears you have made a friend
       on this adventure.
-  afterDialogueAction:
+  startDialogueAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000}
@@ -37,5 +37,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   nextObject: {fileID: 0}
   notes: 
