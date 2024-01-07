@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entries:
   - speaker: 
-    text: As you are travelling the lost path on your quest towards the Tower oof
+    text: As you are travelling the lost path on your quest towards the Tower of
       Darkness, you approach a lone wolf standing in a clearing.
   - speaker: 
     text: Your quiet approach is cut short as you step on a squeaky toy half-buried
