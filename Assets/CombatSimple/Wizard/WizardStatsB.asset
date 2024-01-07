@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b37bbe36834408a69c29ee05a41cc1, type: 3}
   m_Name: WizardStatsB
   m_EditorClassIdentifier: 
-  name: 
+  characterName: Palpatinish
+  portrait: {fileID: 21300000, guid: bc0f3e66a80669040b070c45c862f5f4, type: 3}
   maxHealth: 200
   currentHealth: 200
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 1357845a428c21248b61c5dc745a4c59, type: 2}
+  - {fileID: 11400000, guid: 4e328e5420c82f548b267c86348ef9eb, type: 2}
   maxActionPoints: 100
   currentActionPoints: 0
-  actionBehaviours: []
+  actionBehaviours:
+  - {fileID: 11400000, guid: 13c64f64588549e4690d1a8dd082ce1a, type: 2}
   defaultBehaviour: {fileID: 0}
+  startingDialogue: {fileID: 11400000, guid: 326a76470ac66604d9e29032b3720a88, type: 2}
+  winDialogueAttack: {fileID: 11400000, guid: 2ed0027586818fd43812493c1d9272fe, type: 2}
+  winDialogueAct: {fileID: 0}
+  losingDialogue: {fileID: 0}
   description: 
