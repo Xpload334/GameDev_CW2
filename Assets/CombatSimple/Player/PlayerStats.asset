@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   characterName: Player
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 3f1e0164579cac149a96c8669b8fd249, type: 3}
   maxHealth: 100
-  currentHealth: 83
-  attacks:
-  - {fileID: 11400000, guid: 62432e27790b8cb45aa85f1974d07d9c, type: 2}
+  currentHealth: 98
+  attacks: []
   maxActionPoints: 100
   currentActionPoints: 0
   actionBehaviours: []
