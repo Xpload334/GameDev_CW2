@@ -18,18 +18,9 @@ MonoBehaviour:
       door to the tower.
   - speaker: 
     text: To your surprise, it's not even locked, and opens with a simple push.
-  - speaker: Goblin
-    text: Here is where I leave you, human. Good luck on your quest, but I must head
-      back to my camp now.
   - speaker: 
-    text: He starts to walk back, though he quickly turns around and offers you his
-      spear and a small berry-stained pouch.
-  - speaker: Goblin
-    text: You might need these, human. I can make more for myself later.
-  - speaker: 
-    text: Thanking the goblin, you cautiously make your way up the spiral staircase,
-      and you start to hear a deep humming sound, getting louder as you ascend further
-      and further.
+    text: You cautiously make your way up the spiral staircase, and you start to
+      hear a deep humming sound, getting louder as you ascend further and further.
   - speaker: 
     text: Reaching the apex of the tower you see a dark figure with his back turned
       to you.
@@ -51,6 +42,9 @@ MonoBehaviour:
   - speaker: 
     text: Palpatinish starts chanting in an unknown tongue, but as he finishes his
       chant and raises his arms nothing happens.
+  startDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   afterDialogueAction:
     m_PersistentCalls:
       m_Calls:
