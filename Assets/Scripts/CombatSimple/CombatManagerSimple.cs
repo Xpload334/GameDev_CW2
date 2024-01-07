@@ -401,27 +401,27 @@ namespace CombatSimple
             playerCharacter.ChangeDamageType(DamageType.None);
             playerUI.ChangeDamageType(DamageType.None);
             
+            //Add action points first
+            enemyCharacter.AddActionPoints(entry.actionPointsGain);
+            
             //Choose enemy attack type
             var enemyAttack = enemyCharacter.AttackRandom();
             var enemyDamageType = enemyAttack.damageType;
             enemyCharacter.ChangeDamageType(enemyDamageType);
-            enemyCharacter.ChangeDamageType(enemyDamageType);
+            enemyUI.ChangeDamageType(enemyDamageType);
 
             if (entry.dialogue != null)
             {
                 dialogueManager.StartDialogue(entry.dialogue, () =>
                 {
-                    enemyCharacter.AddActionPoints(entry.actionPointsGain);
                     UpdateEnemyUI();
-                
                     EndPlayerTurn(enemyAttack);
                 });
             }
             else
             {
-                enemyCharacter.AddActionPoints(entry.actionPointsGain);
+                // enemyCharacter.AddActionPoints(entry.actionPointsGain);
                 UpdateEnemyUI();
-                
                 EndPlayerTurn(enemyAttack);
             }
             
@@ -461,18 +461,18 @@ namespace CombatSimple
 
         void UpdateEnemyUI()
         {
-            enemyUI.UpdateHealth(enemyCharacter.GetHealth());
             enemyUI.maxHealth = enemyCharacter.GetMaxHealth();
-            enemyUI.UpdateActionPoints(enemyCharacter.GetActionPoints());
             enemyUI.maxActionPoints = enemyCharacter.GetMaxActionPoints();
+            enemyUI.UpdateHealth(enemyCharacter.GetHealth());
+            enemyUI.UpdateActionPoints(enemyCharacter.GetActionPoints());
         }
 
         void UpdatePlayerUI()
         {
-            playerUI.UpdateHealth(playerCharacter.GetHealth());
             playerUI.maxHealth = playerCharacter.GetHealth();
-            playerUI.UpdateActionPoints(playerCharacter.GetActionPoints());
             playerUI.maxHealth = playerCharacter.GetMaxActionPoints();
+            playerUI.UpdateHealth(playerCharacter.GetHealth());
+            playerUI.UpdateActionPoints(playerCharacter.GetActionPoints());
         }
 
         void InitialisePlayer()

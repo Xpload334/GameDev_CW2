@@ -16,5 +16,10 @@ MonoBehaviour:
   - speaker: 
     text: The goblin is wearing somewhat scruffy-looking human clothes, is he trying
       to avoid looking like a stereotypical goblin?
+  - speaker: 
+    text: He carries a cardboard shield and a stick with a rounded end.
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   nextObject: {fileID: 0}
   notes: 

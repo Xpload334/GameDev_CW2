@@ -16,5 +16,11 @@ MonoBehaviour:
   - speaker: 
     text: The wolf is limping, likely from an injury. Perhaps it would be open to
       diplomacy?
+  - speaker: 
+    text: Its teeth are pointed like knives, but how can you stop it from using them
+      on you?
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   nextObject: {fileID: 0}
   notes: 

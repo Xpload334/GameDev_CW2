@@ -37,7 +37,7 @@ namespace CombatSimple
                 }
             }
             
-            return availableAttacks[Random.Range(0, availableAttacks.Count - 1)];
+            return availableAttacks[Random.Range(0, availableAttacks.Count)];
         }
 
         public void PlayAttack(Attack attack)

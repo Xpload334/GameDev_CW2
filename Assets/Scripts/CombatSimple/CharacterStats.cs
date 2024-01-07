@@ -35,6 +35,7 @@ namespace CombatSimple
         public void Initialise()
         {
             currentHealth = maxHealth;
+            currentActionPoints = 0;
             foreach (var behaviour in actionBehaviours)
             {
                 behaviour.Initialise();
