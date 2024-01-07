@@ -17,7 +17,7 @@ MonoBehaviour:
     text: The forest gets much denser and in places you struggle to find the path
       amoung the underbrush.
   - speaker: 
-    text: Still, you forge on, until you notice a plume of some a small distance
+    text: Still, you forge on, until you notice a plume of smoke a small distance
       away along the path.
   - speaker: 
     text: Getting closer, you see a primitive wooden hut with a much smaller house
@@ -30,6 +30,9 @@ MonoBehaviour:
   - speaker: Goblin
     text: You hurt the big dog! You are a monster, how could you? I was just about
       to help it before you came along and ruined everything!
+  startDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   afterDialogueAction:
     m_PersistentCalls:
       m_Calls:
