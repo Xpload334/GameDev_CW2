@@ -18,7 +18,7 @@ MonoBehaviour:
   afterDialogueAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 6892d657bd5ec7a439ce16f34a5cb910, type: 2}
+      - m_Target: {fileID: 11400000, guid: c61587e4bd412ac4681476c34d539033, type: 2}
         m_TargetAssemblyTypeName: ScriptableObjects.SoundEffectSO, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1

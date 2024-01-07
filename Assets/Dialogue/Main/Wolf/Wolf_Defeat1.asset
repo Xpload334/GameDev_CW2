@@ -19,5 +19,20 @@ MonoBehaviour:
   - speaker: 
     text: You hear more rustling from the bushes behind you, before everything goes
       quiet and you continue on your journey.
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: StopAllLoopingAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   nextObject: {fileID: 11400000, guid: 1adf4625391309b45abdac70011abb88, type: 2}
   notes: GoblinB

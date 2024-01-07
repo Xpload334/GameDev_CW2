@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dffc4caa001040d7bbca569bcdf715c6, type: 3}
-  m_Name: SoundConfirm
+  m_Name: SoundElectrocute
   m_EditorClassIdentifier: 
   _sourcePrefab: {fileID: 7610838424301782502, guid: 216616934215d7f4a9586a3ccfa6095b, type: 3}
-  clip: {fileID: 8300000, guid: c5cb2ac29e89dbf43a9b644caaad45e6, type: 3}
+  clip: {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
   Loop: 0
   volume: 1

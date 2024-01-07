@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SoundDamage
   m_EditorClassIdentifier: 
   _sourcePrefab: {fileID: 7610838424301782502, guid: bad234065da8a1f469b78af9cb9efd4b, type: 3}
-  clip: {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
-  Loop: 0
+  clips:
+  - {fileID: 8300000, guid: 88b1cbe3caa3fee4b8b103b5edd7aba9, type: 3}
   volume: 1
+  playOrder: 1
