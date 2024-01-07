@@ -21,5 +21,20 @@ MonoBehaviour:
       in the earth, alerting the wolf to your presence.
   - speaker: 
     text: It turns around to face you and bears its teeth.
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 05659f93909467c4ea2ae4c4dd177121, type: 2}
+        m_TargetAssemblyTypeName: ScriptableObjects.SoundEffectSO, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   nextObject: {fileID: 11400000, guid: 2e9fd98902c09b0428639f8f13e2dbd5, type: 2}
   notes: 

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Attack_Wizard_Paper
   m_EditorClassIdentifier: 
   damageType: 2
-  damageMax: 80
-  damageNormal: 30
+  damageMax: 40
+  damageNormal: 10
   damageMin: 0
   dialogue: {fileID: 11400000, guid: b86daf02ed039b8479086d164fb4abec, type: 2}
   minActionPoints: 0

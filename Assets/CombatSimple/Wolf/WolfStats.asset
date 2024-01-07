@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Wolf
   portrait: {fileID: 21300000, guid: 85621625ba830ee4e80bc7c37b18b1ac, type: 3}
   maxHealth: 50
-  currentHealth: 0
+  currentHealth: 50
   attacks:
   - {fileID: 11400000, guid: 14c9667afcca7d94aae5d7a2da619b41, type: 2}
   - {fileID: 11400000, guid: 101fe2b91bf639944a06285beed409c4, type: 2}

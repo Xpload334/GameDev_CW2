@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Goblin
   portrait: {fileID: 21300000, guid: 5c66b8496dd5f4f47aa4e5ec53a2e7fe, type: 3}
-  maxHealth: 90
-  currentHealth: 90
+  maxHealth: 70
+  currentHealth: 70
   attacks:
   - {fileID: 11400000, guid: d6b1986f0e7da8a4c947debfd1a71fdc, type: 2}
   - {fileID: 11400000, guid: b8667ef8db6ca8a41b7c2a72eedce769, type: 2}
