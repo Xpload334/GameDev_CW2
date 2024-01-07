@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,10 +17,24 @@ public class ScreenFade : MonoBehaviour
     {
         StartCoroutine(FadeToBlack(afterFadeAction));
     }
+    public void StartFadeToBlack()
+    {
+        StartCoroutine(FadeToBlack(() =>
+        {
+            Debug.Log("Fade finished");
+        }));
+    }
     
     public void StartFadeFromBlack(UnityAction afterFadeAction)
     {
         StartCoroutine(FadeFromBlack(afterFadeAction));
+    }
+    public void StartFadeFromBlack()
+    {
+        StartCoroutine(FadeFromBlack(() =>
+        {
+            Debug.Log("Fade finished");
+        }));
     }
 
     private IEnumerator FadeToBlack(UnityAction actionToTrigger)

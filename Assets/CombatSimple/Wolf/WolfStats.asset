@@ -16,10 +16,15 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 50
   attacks:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 14c9667afcca7d94aae5d7a2da619b41, type: 2}
+  - {fileID: 11400000, guid: 101fe2b91bf639944a06285beed409c4, type: 2}
   maxActionPoints: 100
   currentActionPoints: 0
   actionBehaviours:
   - {fileID: 11400000, guid: 1eb3af1de9489f742ab03339d9924a42, type: 2}
+  - {fileID: 11400000, guid: e177b44cc18413d438e8c1ec5b298436, type: 2}
+  - {fileID: 11400000, guid: 342a9dc0e8131cc4b8c16295a8a65178, type: 2}
+  - {fileID: 11400000, guid: 274a436fa4f169f4aa2865b585d99fb9, type: 2}
+  - {fileID: 11400000, guid: bc2093edf892dc743b4c61d25942b247, type: 2}
   defaultBehaviour: {fileID: 0}
   description: 

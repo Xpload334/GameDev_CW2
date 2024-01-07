@@ -6,7 +6,7 @@ namespace CombatSimple
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Character Stats", order = 1)]
     public class CharacterStats : ScriptableObject
     {
-        public string name;
+        // public string name;
         
         [Header("Health")]
         public int maxHealth = 50; //Maximum health
@@ -23,6 +23,7 @@ namespace CombatSimple
         
         [TextArea(15,20)]
         public string description;
+        public string characterName = "Unknown";
 
         public void Initialise()
         {

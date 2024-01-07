@@ -20,7 +20,7 @@ namespace CombatSimple
             
         }
 
-        void InitialiseStats()
+        public void InitialiseStats()
         {
             characterStats.Initialise();
         }
@@ -131,7 +131,7 @@ namespace CombatSimple
 
         public void ChangeDamageType(DamageType type)
         {
-            Debug.Log("Character "+characterStats.name+" changed to type "+type);
+            Debug.Log("Character "+characterStats.characterName+" changed to type "+type);
             currentDamageType = type;
         }
     }

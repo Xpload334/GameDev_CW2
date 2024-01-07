@@ -26,6 +26,11 @@ namespace CombatSimple
         public CharacterUI enemyUI;
         public PlayerMenuUI playerMenuUI;
 
+        [Header("Paths")] 
+        public bool isWolfBattle;
+        public bool isGoblinBattle;
+        public bool isWizardBattle;
+
         private void Start()
         {
             StartState();
@@ -87,6 +92,14 @@ namespace CombatSimple
         public void StartState()
         {
             SetCurrentState(CombatStateSimple.Start);
+            playerCharacter.InitialiseStats();
+            enemyCharacter.InitialiseStats();
+            
+            UpdatePlayerUI();
+            UpdateEnemyUI();
+            
+            ApplyPathCheck();
+            
             //If there is any starting dialogue, play it
             if (startingDialogue != null)
             {
@@ -97,6 +110,14 @@ namespace CombatSimple
             {
                 StartCombat();
             }
+        }
+
+        /*
+         * 
+         */
+        public void ApplyPathCheck()
+        {
+            Debug.Log("Checking which path");
         }
         
         /*
@@ -141,9 +162,21 @@ namespace CombatSimple
             }
         }
 
-        public void StartEnemyTurn(Attack enemyAttack)
+        /*
+         * Allow enemy to attack the player
+         */
+        public void StartEnemyTurn(Attack attack)
         {
             SetCurrentState(CombatStateSimple.EnemyTurn);
+            var damage = attack.GetDamage(playerCharacter.currentDamageType);
+            
+            dialogueManager.StartDialogue(attack.dialogue, () =>
+            {
+                playerCharacter.TakeDamage(damage);
+                UpdatePlayerUI();
+                    
+                EndEnemyTurn();
+            });
         }
 
         public void EndEnemyTurn()
@@ -163,6 +196,7 @@ namespace CombatSimple
 
         void StartWinAttack()
         {
+            Debug.Log("Enemy defeated with attacks");
             if (winDialogueAttack != null)
             {
                 dialogueManager.StartDialogue(winDialogueAttack, WinAttack);
@@ -171,6 +205,7 @@ namespace CombatSimple
         
         void StartWinAct()
         {
+            Debug.Log("Enemy defeated with acts");
             if (winDialogueAct != null)
             {
                 dialogueManager.StartDialogue(winDialogueAct, WinAct);
@@ -179,6 +214,7 @@ namespace CombatSimple
 
         void StartLose()
         {
+            Debug.Log("Player defeated");
             if (losingDialogue != null)
             {
                 dialogueManager.StartDialogue(losingDialogue, RestartCombat);
@@ -194,6 +230,7 @@ namespace CombatSimple
         {
             Debug.Log("Restarting combat");
             //Reload scene
+            FindObjectOfType<MySceneManager>().RestartCurrentScene();
         }
 
         void WinAttack()
@@ -214,15 +251,19 @@ namespace CombatSimple
          */
         public void PlayerAttacksEnemy(Attack attack)
         {
+            playerMenuUI.DisableUI();
+            
             Debug.Log("Player attacks with "+attack+"("+attack.damageType+")");
             playerCharacter.ChangeDamageType(attack.damageType);
+            playerUI.ChangeDamageType(attack.damageType);
             // playerCharacter.currentDamageType = attack.damageType;
             
             //Choose enemy attack type
             var enemyAttack = enemyCharacter.AttackRandom();
             var enemyDamageType = enemyAttack.damageType;
-            // enemyCharacter.currentDamageType = enemyDamageType;
+            Debug.Log("Enemy has damage type "+enemyDamageType);
             enemyCharacter.ChangeDamageType(enemyDamageType);
+            enemyUI.ChangeDamageType(enemyDamageType);
             
             var damage = attack.GetDamage(enemyCharacter.currentDamageType);
 
@@ -258,12 +299,25 @@ namespace CombatSimple
          */
         public void ActPlayer(ActType actType)
         {
+            playerMenuUI.DisableUI();
+            
             Debug.Log("Player acts with "+actType);
             ActionsBehaviourEntry entry = enemyCharacter.GetActionEntry(actType);
+            playerCharacter.ChangeDamageType(DamageType.None);
+            playerUI.ChangeDamageType(DamageType.None);
+            
+            //Choose enemy attack type
+            var enemyAttack = enemyCharacter.AttackRandom();
+            var enemyDamageType = enemyAttack.damageType;
+            enemyCharacter.ChangeDamageType(enemyDamageType);
+            enemyCharacter.ChangeDamageType(enemyDamageType);
+            
             dialogueManager.StartDialogue(entry.dialogue, () =>
             {
                 enemyCharacter.AddActionPoints(entry.actionPointsGain);
                 UpdateEnemyUI();
+                
+                EndPlayerTurn(enemyAttack);
             });
             
         }
@@ -291,13 +345,17 @@ namespace CombatSimple
         void UpdateEnemyUI()
         {
             enemyUI.UpdateHealth(enemyCharacter.GetHealth());
+            enemyUI.maxHealth = enemyCharacter.GetMaxHealth();
             enemyUI.UpdateActionPoints(enemyCharacter.GetActionPoints());
+            enemyUI.maxActionPoints = enemyCharacter.GetMaxActionPoints();
         }
 
         void UpdatePlayerUI()
         {
             playerUI.UpdateHealth(playerCharacter.GetHealth());
+            playerUI.maxHealth = playerCharacter.GetHealth();
             playerUI.UpdateActionPoints(playerCharacter.GetActionPoints());
+            playerUI.maxHealth = playerCharacter.GetMaxActionPoints();
         }
     }
 }

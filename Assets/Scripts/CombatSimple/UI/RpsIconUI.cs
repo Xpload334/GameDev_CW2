@@ -21,7 +21,7 @@ namespace CombatSimple.UI
                     rpsIcon.sprite = spriteBlank;
                     break;
                 case DamageType.Rock:
-                    rpsIcon.sprite = spritePaper;
+                    rpsIcon.sprite = spriteRock;
                     break;
                 case DamageType.Paper:
                     rpsIcon.sprite = spritePaper;

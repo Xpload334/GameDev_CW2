@@ -9,7 +9,7 @@ namespace CombatSimple
         public ActType actType;
         public int behaviourIndex;
         public List<ActionsBehaviourEntry> behaviours;
-
+        
         public void Initialise()
         {
             behaviourIndex = 0;

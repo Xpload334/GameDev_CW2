@@ -46,7 +46,7 @@ public class SlowPrint : MonoBehaviour
     // Method to start printing text slowly
     public void StartSlowPrint(string text)
     {
-        Debug.Log("Print started: "+text);
+        // Debug.Log("Print started: "+text);
         if (currentPrintCoroutine != null)
         {
             StopCoroutine(currentPrintCoroutine); // Stop any ongoing coroutine
@@ -58,7 +58,7 @@ public class SlowPrint : MonoBehaviour
     // Method to stop printing immediately
     public void StopPrint()
     {
-        Debug.Log("Print stopped");
+        // Debug.Log("Print stopped");
         if (currentPrintCoroutine != null)
         {
             StopCoroutine(currentPrintCoroutine);
