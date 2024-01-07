@@ -7,6 +7,8 @@ namespace CombatSimple
     public class CharacterStats : ScriptableObject
     {
         // public string name;
+        public string characterName = "Unknown";
+        public Sprite portrait;
         
         [Header("Health")]
         public int maxHealth = 50; //Maximum health
@@ -21,9 +23,14 @@ namespace CombatSimple
         public List<ActionsBehaviour> actionBehaviours;
         public ActionsBehaviour defaultBehaviour; //Behaviour for when an action doesn't do anything
         
+        [Header("Dialogue")]
+        public Dialogue startingDialogue;
+        public Dialogue winDialogueAttack;
+        public Dialogue winDialogueAct;
+        public Dialogue losingDialogue;
+
         [TextArea(15,20)]
         public string description;
-        public string characterName = "Unknown";
 
         public void Initialise()
         {

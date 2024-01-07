@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b37bbe36834408a69c29ee05a41cc1, type: 3}
   m_Name: GoblinStats
   m_EditorClassIdentifier: 
-  name: 
+  characterName: Unknown
+  portrait: {fileID: 0}
   maxHealth: 90
   currentHealth: 90
   attacks: []
@@ -20,4 +21,8 @@ MonoBehaviour:
   currentActionPoints: 0
   actionBehaviours: []
   defaultBehaviour: {fileID: 0}
+  startingDialogue: {fileID: 0}
+  winDialogueAttack: {fileID: 0}
+  winDialogueAct: {fileID: 0}
+  losingDialogue: {fileID: 0}
   description: 

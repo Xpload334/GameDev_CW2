@@ -1,5 +1,6 @@
 ﻿using System;
 using CombatSimple.UI;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace CombatSimple
@@ -13,10 +14,10 @@ namespace CombatSimple
         public Character enemyCharacter;
 
         [Header("Dialogue")]
-        public Dialogue startingDialogue;
-        public Dialogue winDialogueAttack;
-        public Dialogue winDialogueAct;
-        public Dialogue losingDialogue;
+        // public Dialogue startingDialogue;
+        // public Dialogue winDialogueAttack;
+        // public Dialogue winDialogueAct;
+        // public Dialogue losingDialogue;
 
         [Header("Dialogue Attacks")] 
         public Dialogue dialogueAttackedEnemyWithActPoints;
@@ -27,6 +28,7 @@ namespace CombatSimple
         public PlayerMenuUI playerMenuUI;
 
         [Header("Paths")] 
+        public PlayerPathManager pathManager;
         public bool isWolfBattle;
         public bool isGoblinBattle;
         public bool isWizardBattle;
@@ -92,19 +94,19 @@ namespace CombatSimple
         public void StartState()
         {
             SetCurrentState(CombatStateSimple.Start);
+            ApplyPathCheck();
+            
             playerCharacter.InitialiseStats();
             enemyCharacter.InitialiseStats();
             
             UpdatePlayerUI();
             UpdateEnemyUI();
-            
-            ApplyPathCheck();
-            
+
             //If there is any starting dialogue, play it
-            if (startingDialogue != null)
+            if (enemyCharacter.characterStats.startingDialogue != null)
             {
                 playerMenuUI.DisableUI();
-                dialogueManager.StartDialogue(startingDialogue, StartCombat);
+                dialogueManager.StartDialogue(enemyCharacter.characterStats.startingDialogue, StartCombat);
             }
             else
             {
@@ -118,6 +120,44 @@ namespace CombatSimple
         public void ApplyPathCheck()
         {
             Debug.Log("Checking which path");
+            pathManager = FindObjectOfType<PlayerPathManager>();
+
+            //First battle
+            switch (pathManager.battleNum)
+            {
+                //No battles
+                case 0:
+                {
+                    //None
+                    pathManager.battleNum = 1;
+                    break;
+                }
+                //Wolf battle
+                case 1:
+                {
+                    //No effects
+                    break;
+                }
+                //Goblin battle
+                case 2:
+                {
+                    if (pathManager.wolfBefriended)
+                    {
+                        //Wolf befriended
+                        enemyCharacter.characterStats = pathManager.GoblinStats_WolfAct;
+                    }
+                    else
+                    {
+                        //Wolf defeated
+                        enemyCharacter.characterStats = pathManager.GoblinStats_WolfAttack;
+                    }
+                    break;
+                }
+                case 3:
+                {
+                    break;
+                }
+            }
         }
         
         /*
@@ -170,13 +210,25 @@ namespace CombatSimple
             SetCurrentState(CombatStateSimple.EnemyTurn);
             var damage = attack.GetDamage(playerCharacter.currentDamageType);
             
-            dialogueManager.StartDialogue(attack.dialogue, () =>
+            //Dialogue and after action
+            if (attack.dialogue != null)
+            {
+                dialogueManager.StartDialogue(attack.dialogue, () =>
+                {
+                    playerCharacter.TakeDamage(damage);
+                    UpdatePlayerUI();
+                    
+                    EndEnemyTurn();
+                });
+            }
+            else
             {
                 playerCharacter.TakeDamage(damage);
                 UpdatePlayerUI();
                     
                 EndEnemyTurn();
-            });
+            }
+            
         }
 
         public void EndEnemyTurn()
@@ -197,27 +249,27 @@ namespace CombatSimple
         void StartWinAttack()
         {
             Debug.Log("Enemy defeated with attacks");
-            if (winDialogueAttack != null)
+            if (enemyCharacter.characterStats.winDialogueAttack != null)
             {
-                dialogueManager.StartDialogue(winDialogueAttack, WinAttack);
+                dialogueManager.StartDialogue(enemyCharacter.characterStats.winDialogueAttack, WinAttack);
             }
         }
         
         void StartWinAct()
         {
             Debug.Log("Enemy defeated with acts");
-            if (winDialogueAct != null)
+            if (enemyCharacter.characterStats.winDialogueAct != null)
             {
-                dialogueManager.StartDialogue(winDialogueAct, WinAct);
+                dialogueManager.StartDialogue(enemyCharacter.characterStats.winDialogueAct, WinAct);
             }
         }
 
         void StartLose()
         {
             Debug.Log("Player defeated");
-            if (losingDialogue != null)
+            if (enemyCharacter.characterStats.losingDialogue != null)
             {
-                dialogueManager.StartDialogue(losingDialogue, RestartCombat);
+                dialogueManager.StartDialogue(enemyCharacter.characterStats.losingDialogue, RestartCombat);
             }
         }
         
@@ -268,7 +320,7 @@ namespace CombatSimple
             var damage = attack.GetDamage(enemyCharacter.currentDamageType);
 
             //If enemy attacked when they have action points (betrayed)
-            if (enemyCharacter.GetActionPoints() > 0)
+            if (dialogueAttackedEnemyWithActPoints != null && enemyCharacter.GetActionPoints() > 0)
             {
                 dialogueManager.StartDialogue(dialogueAttackedEnemyWithActPoints, () =>
                 {
@@ -281,13 +333,24 @@ namespace CombatSimple
             }
             else
             {
-                dialogueManager.StartDialogue(attack.dialogue, () =>
+                if (attack.dialogue != null)
+                {
+                    dialogueManager.StartDialogue(attack.dialogue, () =>
+                    {
+                        enemyCharacter.TakeDamage(damage);
+                        UpdateEnemyUI();
+                    
+                        EndPlayerTurn(enemyAttack);
+                    });
+                }
+                else
                 {
                     enemyCharacter.TakeDamage(damage);
                     UpdateEnemyUI();
                     
                     EndPlayerTurn(enemyAttack);
-                });
+                }
+                
             }
             
         }
@@ -311,14 +374,25 @@ namespace CombatSimple
             var enemyDamageType = enemyAttack.damageType;
             enemyCharacter.ChangeDamageType(enemyDamageType);
             enemyCharacter.ChangeDamageType(enemyDamageType);
-            
-            dialogueManager.StartDialogue(entry.dialogue, () =>
+
+            if (entry.dialogue != null)
+            {
+                dialogueManager.StartDialogue(entry.dialogue, () =>
+                {
+                    enemyCharacter.AddActionPoints(entry.actionPointsGain);
+                    UpdateEnemyUI();
+                
+                    EndPlayerTurn(enemyAttack);
+                });
+            }
+            else
             {
                 enemyCharacter.AddActionPoints(entry.actionPointsGain);
                 UpdateEnemyUI();
                 
                 EndPlayerTurn(enemyAttack);
-            });
+            }
+            
             
         }
 
@@ -329,12 +403,23 @@ namespace CombatSimple
         {
             Debug.Log("Enemy attacks with "+attack+"("+attack.damageType+")");
             var damage = attack.GetDamage(playerCharacter.currentDamageType);
-            dialogueManager.StartDialogue(attack.dialogue, () =>
+
+            if (attack.dialogue != null)
+            {
+                dialogueManager.StartDialogue(attack.dialogue, () =>
+                {
+                    playerCharacter.TakeDamage(damage);
+                    UpdatePlayerUI();
+                    EndEnemyTurn();
+                });
+            }
+            else
             {
                 playerCharacter.TakeDamage(damage);
                 UpdatePlayerUI();
                 EndEnemyTurn();
-            });
+            }
+            
         }
 
         int GetAttackDamage(Attack attack, DamageType opposingDamageType)

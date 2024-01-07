@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b37bbe36834408a69c29ee05a41cc1, type: 3}
   m_Name: WolfStats
   m_EditorClassIdentifier: 
-  name: 
+  characterName: Wolf
+  portrait: {fileID: 21300000, guid: 85621625ba830ee4e80bc7c37b18b1ac, type: 3}
   maxHealth: 50
-  currentHealth: 50
+  currentHealth: 0
   attacks:
   - {fileID: 11400000, guid: 14c9667afcca7d94aae5d7a2da619b41, type: 2}
   - {fileID: 11400000, guid: 101fe2b91bf639944a06285beed409c4, type: 2}
@@ -27,4 +28,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 274a436fa4f169f4aa2865b585d99fb9, type: 2}
   - {fileID: 11400000, guid: bc2093edf892dc743b4c61d25942b247, type: 2}
   defaultBehaviour: {fileID: 0}
+  startingDialogue: {fileID: 11400000, guid: 14ddce6586c76544bb7e3227afbaf8dc, type: 2}
+  winDialogueAttack: {fileID: 11400000, guid: f8c9f20acae5d234d92a3ee8dae8dbfe, type: 2}
+  winDialogueAct: {fileID: 11400000, guid: 2bdd202763844a74592292a9823fba46, type: 2}
+  losingDialogue: {fileID: 0}
   description: 

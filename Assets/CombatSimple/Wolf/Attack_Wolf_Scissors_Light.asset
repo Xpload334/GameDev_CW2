@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2815b56a714931ac61e2c9488b181d, type: 3}
   m_Name: Attack_Wolf_Scissors_Light
   m_EditorClassIdentifier: 
-  damageType: 0
+  damageType: 3
   damageMax: 5
   damageNormal: 3
   damageMin: 1

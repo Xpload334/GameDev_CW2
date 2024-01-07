@@ -5,23 +5,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MySceneManager : MonoBehaviour
 {
-    // private static MySceneManager _instance;
+    private static MySceneManager _instance;
     public ScreenFade screenFade;
 
     public string currentScene;
 
-    // private void Awake()
-    // {
-    //     if (_instance == null)
-    //     {
-    //         _instance = this;
-    //         DontDestroyOnLoad(gameObject);
-    //     }
-    //     else
-    //     {
-    //         Destroy(gameObject);
-    //     }
-    // }
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

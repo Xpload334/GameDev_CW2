@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b37bbe36834408a69c29ee05a41cc1, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  name: 
+  characterName: Player
+  portrait: {fileID: 0}
   maxHealth: 100
-  currentHealth: 95
+  currentHealth: 83
   attacks:
   - {fileID: 11400000, guid: 62432e27790b8cb45aa85f1974d07d9c, type: 2}
   maxActionPoints: 100
   currentActionPoints: 0
   actionBehaviours: []
   defaultBehaviour: {fileID: 0}
+  startingDialogue: {fileID: 0}
+  winDialogueAttack: {fileID: 0}
+  winDialogueAct: {fileID: 0}
+  losingDialogue: {fileID: 0}
   description: 
