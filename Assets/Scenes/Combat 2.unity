@@ -854,6 +854,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3707139264215981765, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ad48736a902ff1a45903c5695ca54ec6, type: 3}
+    - target: {fileID: 3707139264485968596, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ecad83f9a431024f8d45c8a2bd415b4, type: 3}
+    - target: {fileID: 3707139264735952969, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6a5afa057c6e89c418b5f4bd57edb345, type: 3}
     - target: {fileID: 3707139264748439237, guid: def437904716c0d449c6f4305af80ed1, type: 3}
       propertyPath: m_Name
       value: BackgroundCanvas
@@ -942,6 +954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3707139266186059614, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 45b4857e3dfc83647a550320b170c103, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def437904716c0d449c6f4305af80ed1, type: 3}
 --- !u!1001 &4459005248596740035

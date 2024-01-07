@@ -854,6 +854,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3707139264215981765, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0a7017c6a4e2242979a9cb3a806a15, type: 3}
+    - target: {fileID: 3707139264215981767, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707139264485968596, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f79a2b71195172a41b387af6b3348ebf, type: 3}
+    - target: {fileID: 3707139264485968597, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707139264735952969, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ee9c21da72b0c6140aff3e3e9314cbe9, type: 3}
+    - target: {fileID: 3707139264735952970, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707139264735952971, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3707139264748439237, guid: def437904716c0d449c6f4305af80ed1, type: 3}
       propertyPath: m_Name
       value: BackgroundCanvas
@@ -942,6 +970,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3707139266186059608, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3707139266186059614, guid: def437904716c0d449c6f4305af80ed1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: de0a7017c6a4e2242979a9cb3a806a15, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def437904716c0d449c6f4305af80ed1, type: 3}
 --- !u!1001 &4459005248596740035
@@ -1368,11 +1404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212318214191040287, guid: 110899e81d436c947b8bbfebbea1eafa, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8212318214191040287, guid: 110899e81d436c947b8bbfebbea1eafa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 8212318214191040287, guid: 110899e81d436c947b8bbfebbea1eafa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1476,11 +1512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8212318215181399407, guid: 110899e81d436c947b8bbfebbea1eafa, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 250
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8212318215181399407, guid: 110899e81d436c947b8bbfebbea1eafa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8212318215181399407, guid: 110899e81d436c947b8bbfebbea1eafa, type: 3}
       propertyPath: m_AnchoredPosition.y
