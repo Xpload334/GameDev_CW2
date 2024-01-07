@@ -16,4 +16,4 @@ MonoBehaviour:
   behaviourIndex: 0
   behaviours:
   - actionPointsGain: 50
-    dialogue: {fileID: 11400000, guid: 989b0d4e7c579614ba1333e31b825fdc, type: 2}
+    dialogue: {fileID: 11400000, guid: 22e45b904666e1141813a06360167ecf, type: 2}

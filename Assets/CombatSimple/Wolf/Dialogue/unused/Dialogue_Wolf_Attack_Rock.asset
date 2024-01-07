@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d4121ec29841a2ac07d4a6e72a9d45, type: 3}
-  m_Name: Behaviour_Wolf_Offer
+  m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
+  m_Name: Dialogue_Wolf_Attack_Rock
   m_EditorClassIdentifier: 
-  actType: 1
-  behaviourIndex: 0
-  behaviours:
-  - actionPointsGain: 50
-    dialogue: {fileID: 11400000, guid: 5f72cd8161522aa4fa064b8965f08d17, type: 2}
+  entries:
+  - speaker: 
+    text: The wolf charges into you.
+  afterDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
+  nextObject: {fileID: 0}
+  notes: Attacked rock

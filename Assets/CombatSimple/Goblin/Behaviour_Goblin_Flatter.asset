@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d4121ec29841a2ac07d4a6e72a9d45, type: 3}
-  m_Name: Behaviour_Wolf_Offer
+  m_Name: Behaviour_Goblin_Flatter
   m_EditorClassIdentifier: 
-  actType: 1
+  actType: 3
   behaviourIndex: 0
   behaviours:
   - actionPointsGain: 50
-    dialogue: {fileID: 11400000, guid: 5f72cd8161522aa4fa064b8965f08d17, type: 2}
+    dialogue: {fileID: 11400000, guid: 1ee78035970e3ea4abcf452eb1cb4e71, type: 2}

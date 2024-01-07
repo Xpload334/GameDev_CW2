@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1edfcbe8f774b2bb2389944ead4d8ce, type: 3}
-  m_Name: Dialogue_Goblin_Attack_Rock
+  m_Name: Dialogue_Wolf_Attack_Scissors
   m_EditorClassIdentifier: 
   entries:
   - speaker: 
-    text: The goblin swings his stick to strike you.
+    text: The wolf sinks its teeth into you until you push it away.
   afterDialogueAction:
     m_PersistentCalls:
       m_Calls: []
   nextObject: {fileID: 0}
-  notes: Attacked rock
+  notes: Attacked scissors
