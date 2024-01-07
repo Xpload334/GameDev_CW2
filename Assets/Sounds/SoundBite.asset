@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: SoundBite
   m_EditorClassIdentifier: 
   _sourcePrefab: {fileID: 7610838424301782502, guid: bad234065da8a1f469b78af9cb9efd4b, type: 3}
-  clips:
-  - {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+  clip: {fileID: 8300000, guid: fd25a15f9797641458336cccfb445343, type: 3}
+  Loop: 0
   volume: 1
-  playOrder: 0

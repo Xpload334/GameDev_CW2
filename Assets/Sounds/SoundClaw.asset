@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: SoundClaw
   m_EditorClassIdentifier: 
   _sourcePrefab: {fileID: 7610838424301782502, guid: bad234065da8a1f469b78af9cb9efd4b, type: 3}
-  clips:
-  - {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
+  clip: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
+  Loop: 0
   volume: 1
-  playOrder: 0

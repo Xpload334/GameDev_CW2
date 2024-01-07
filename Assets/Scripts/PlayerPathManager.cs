@@ -7,20 +7,20 @@ namespace DefaultNamespace
     public class PlayerPathManager : MonoBehaviour
     {
         private static PlayerPathManager _instance;
-        public int battleNum = 0;
+        // public int battleNum = 0;
         public bool wolfBefriended;
-        public bool goblinBefriended; //0 or 1
+        public bool goblinBefriended;
 
         [Header("Stats Holder")] 
         public CharacterStats WolfStats;
 
-        public CharacterStats GoblinStats_WolfAct;
-        public CharacterStats GoblinStats_WolfAttack;
+        public CharacterStats GoblinStatsWolfAct;
+        public CharacterStats GoblinStatsWolfAttack;
         
-        public CharacterStats WizardStats_AllAct;
-        public CharacterStats WizardStats_Goblin;
-        public CharacterStats WizardStats_Wolf;
-        public CharacterStats WizardStats_AllAttack;
+        public CharacterStats WizardStatsAllAct;
+        public CharacterStats WizardStatsGoblinAct;
+        public CharacterStats WizardStatsWolfAct;
+        public CharacterStats WizardStatsAllAttack;
         private void Start()
         {
             // wolfBefriended = PlayerPrefs.GetInt(prefWolfBefriended);
@@ -44,7 +44,7 @@ namespace DefaultNamespace
          */
         public void ResetPrefs()
         {
-            battleNum = 0;
+            // battleNum = 0;
             wolfBefriended = false;
             goblinBefriended = false;
         }

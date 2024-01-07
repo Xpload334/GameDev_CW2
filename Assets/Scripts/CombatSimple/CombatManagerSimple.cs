@@ -71,6 +71,7 @@ namespace CombatSimple
         {
             Debug.Log("Checking which path");
             pathManager = FindObjectOfType<PlayerPathManager>();
+            shouldSkipToEnd = false;
 
             //First battle
             switch (thisBattleNum)
@@ -79,7 +80,6 @@ namespace CombatSimple
                 case 0:
                 {
                     //None
-                    pathManager.battleNum = 1;
                     break;
                 }
                 //Wolf battle
@@ -91,20 +91,50 @@ namespace CombatSimple
                 //Goblin battle
                 case 2:
                 {
+                    //Check if wolf defeated before
                     if (pathManager.wolfBefriended)
                     {
                         //Wolf befriended
-                        enemyCharacter.characterStats = pathManager.GoblinStats_WolfAct;
+                        enemyCharacter.characterStats = pathManager.GoblinStatsWolfAct;
                     }
                     else
                     {
                         //Wolf defeated
-                        enemyCharacter.characterStats = pathManager.GoblinStats_WolfAttack;
+                        enemyCharacter.characterStats = pathManager.GoblinStatsWolfAttack;
                     }
                     break;
                 }
                 case 3:
                 {
+                    //Check for goblin and wolf
+                    if (pathManager.wolfBefriended)
+                    {
+                        if (pathManager.goblinBefriended)
+                        {
+                            //All befriended, no fight
+                            enemyCharacter.characterStats = pathManager.WizardStatsAllAct;
+                            shouldSkipToEnd = true;
+                        }
+                        else
+                        {
+                            //Only wolf
+                            enemyCharacter.characterStats = pathManager.WizardStatsWolfAct;
+                        }
+                    }
+                    else
+                    {
+                        if (pathManager.goblinBefriended)
+                        {
+                            //Only goblin
+                            enemyCharacter.characterStats = pathManager.WizardStatsGoblinAct;
+                        }
+                        else
+                        {
+                            //Both defeated
+                            enemyCharacter.characterStats = pathManager.WizardStatsAllAttack;
+                        }
+                    }
+                    
                     break;
                 }
             }
@@ -244,19 +274,19 @@ namespace CombatSimple
             //Set enemy attack to true in PlayerPrefs
             
             //Which battle
-            switch (pathManager.battleNum)
+            switch (thisBattleNum)
             {
                 case 1:
                 {
                     pathManager.SetWolfBefriended(false);
-                    pathManager.battleNum = 2;
+                    // pathManager.battleNum = 2;
                     FindObjectOfType<MySceneManager>().GoblinBattle();
                     break;
                 }
                 case 2:
                 {
                     pathManager.SetGoblinBefriended(false);
-                    pathManager.battleNum = 3;
+                    // pathManager.battleNum = 3;
                     FindObjectOfType<MySceneManager>().WizardBattle();
                     break;   
                 }
@@ -273,19 +303,19 @@ namespace CombatSimple
         void WinAct()
         {
             //Which battle
-            switch (pathManager.battleNum)
+            switch (thisBattleNum)
             {
                 case 1:
                 {
                     pathManager.SetWolfBefriended(true);
-                    pathManager.battleNum = 2;
+                    // pathManager.battleNum = 2;
                     FindObjectOfType<MySceneManager>().GoblinBattle();
                     break;
                 }
                 case 2:
                 {
                     pathManager.SetGoblinBefriended(true);
-                    pathManager.battleNum = 3;
+                    // pathManager.battleNum = 3;
                     FindObjectOfType<MySceneManager>().WizardBattle();
                     break;   
                 }

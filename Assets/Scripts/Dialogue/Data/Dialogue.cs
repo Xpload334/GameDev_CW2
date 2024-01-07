@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Sounds;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,5 +22,16 @@ public class Dialogue : ScriptableObject
     public Dialogue nextObject;
     [Header("Notes")]
     public string notes;
-    
+
+
+    public void StopAllLoopingAudio()
+    {
+        foreach (var soundPrefab in FindObjectsOfType<SoundPrefab>())
+        {
+            if (soundPrefab.ShouldLoop())
+            {
+                soundPrefab.Stop();
+            }
+        }
+    }
 }

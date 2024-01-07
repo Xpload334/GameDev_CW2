@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4827398323095117553}
   - component: {fileID: 4000666054587941983}
   m_Layer: 0
-  m_Name: PlayerPrefManager
+  m_Name: PlayerPathManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,5 +287,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e95c095f6b4465ae6ce0649ad84b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleNum: 0
   wolfBefriended: 0
   goblinBefriended: 0
+  WolfStats: {fileID: 11400000, guid: 94cd3fc57e989bb49b4d34f2c5a797ba, type: 2}
+  GoblinStatsWolfAct: {fileID: 11400000, guid: 8b1c51e0b2418e148b752999b171be23, type: 2}
+  GoblinStatsWolfAttack: {fileID: 11400000, guid: dbac6345d6788cb4fb7d334386326c88, type: 2}
+  WizardStatsAllAct: {fileID: 11400000, guid: cd03eda00e3952a429ea2e3bbd1c5445, type: 2}
+  WizardStatsGoblinAct: {fileID: 11400000, guid: 854cb7c00c5f2454b96b264229a88848, type: 2}
+  WizardStatsWolfAct: {fileID: 11400000, guid: 655ea8c2eb5f0b74989a7ad79ae23297, type: 2}
+  WizardStatsAllAttack: {fileID: 11400000, guid: 64c64c5e6cc194948945a2c8f535ae92, type: 2}
