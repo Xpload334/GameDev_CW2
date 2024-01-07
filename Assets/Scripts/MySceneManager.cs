@@ -48,7 +48,18 @@ public class MySceneManager : MonoBehaviour
     {
         Debug.Log("Loading wolf battle");
         screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Combat1"));
-        
+    }
+    
+    public void GoblinBattle()
+    {
+        Debug.Log("Loading goblin battle");
+        screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Combat2"));
+    }
+    
+    public void WizardBattle()
+    {
+        Debug.Log("Loading wizard battle");
+        screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Combat3"));
     }
 
     public void RestartCurrentScene()

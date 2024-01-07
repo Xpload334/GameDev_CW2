@@ -54,5 +54,10 @@ namespace CombatSimple.UI
             rpsIconUI.ChangeDamageType(type);
         }
 
+        public void SetPortrait(Sprite sprite)
+        {
+            portraitImage.sprite = sprite;
+        }
+
     }
 }

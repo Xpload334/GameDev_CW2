@@ -49,14 +49,14 @@ namespace DefaultNamespace
             goblinBefriended = false;
         }
 
-        public void SetWolfBefriended()
+        public void SetWolfBefriended(bool state)
         {
-            wolfBefriended = true;
+            wolfBefriended = state;
             // PlayerPrefs.SetInt(prefWolfBefriended, 1);
         }
-        public void SetGoblinBefriended()
+        public void SetGoblinBefriended(bool state)
         {
-            goblinBefriended = true;
+            goblinBefriended = state;
             // PlayerPrefs.SetInt(prefGoblinBefriended, 1);
         }
     }

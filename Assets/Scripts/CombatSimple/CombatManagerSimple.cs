@@ -13,12 +13,6 @@ namespace CombatSimple
         public Character playerCharacter;
         public Character enemyCharacter;
 
-        [Header("Dialogue")]
-        // public Dialogue startingDialogue;
-        // public Dialogue winDialogueAttack;
-        // public Dialogue winDialogueAct;
-        // public Dialogue losingDialogue;
-
         [Header("Dialogue Attacks")] 
         public Dialogue dialogueAttackedEnemyWithActPoints;
 
@@ -29,59 +23,14 @@ namespace CombatSimple
 
         [Header("Paths")] 
         public PlayerPathManager pathManager;
-        public bool isWolfBattle;
-        public bool isGoblinBattle;
-        public bool isWizardBattle;
+
+        public bool shouldSkipToEnd = false;
 
         private void Start()
         {
             StartState();
             // throw new NotImplementedException();
         }
-
-        private void Update()
-        {
-            // throw new NotImplementedException();
-        }
-
-        // public void NextState()
-        // {
-        //     previousState = currentState;
-        //     switch (currentState)
-        //     {
-        //         case CombatStateSimple.Start:
-        //             StartCombat();
-        //             break;
-        //         case CombatStateSimple.Dialogue: //Unused
-        //             break;
-        //         /////////////
-        //         //Combat loop
-        //         case CombatStateSimple.PlayerTurn:
-        //             EndPlayerTurn();
-        //             break;
-        //         case CombatStateSimple.PlayerTurnEnd:
-        //             StartEnemyTurn();
-        //             break;
-        //         case CombatStateSimple.EnemyTurn:
-        //             EndEnemyTurn();
-        //             break;
-        //         case CombatStateSimple.EnemyTurnEnd:
-        //             StartPlayerTurn();
-        //             break;
-        //         //////////////
-        //         case CombatStateSimple.WinAttack:
-        //             StartWinAttack();
-        //             break;
-        //         case CombatStateSimple.WinAct:
-        //             StartWinAct();
-        //             break;
-        //         case CombatStateSimple.Lose:
-        //             StartLose();
-        //             break;
-        //         default:
-        //             throw new ArgumentOutOfRangeException();
-        //     }
-        // }
 
         public void SetCurrentState(CombatStateSimple state)
         {
@@ -95,10 +44,10 @@ namespace CombatSimple
         {
             SetCurrentState(CombatStateSimple.Start);
             ApplyPathCheck();
-            
-            playerCharacter.InitialiseStats();
-            enemyCharacter.InitialiseStats();
-            
+
+            InitialisePlayer();
+            InitialiseEnemy();
+
             UpdatePlayerUI();
             UpdateEnemyUI();
 
@@ -166,6 +115,10 @@ namespace CombatSimple
         public void StartCombat()
         {
             Debug.Log("Starting combat");
+            if (shouldSkipToEnd)
+            {
+                StartWinAct();
+            }
             StartPlayerTurn();
         }
 
@@ -288,13 +241,61 @@ namespace CombatSimple
         void WinAttack()
         {
             //Set enemy attack to true in PlayerPrefs
-            //Move to next scene
+            
+            //Which battle
+            switch (pathManager.battleNum)
+            {
+                case 1:
+                {
+                    pathManager.SetWolfBefriended(false);
+                    pathManager.battleNum = 2;
+                    FindObjectOfType<MySceneManager>().GoblinBattle();
+                    break;
+                }
+                case 2:
+                {
+                    pathManager.SetGoblinBefriended(false);
+                    pathManager.battleNum = 3;
+                    FindObjectOfType<MySceneManager>().WizardBattle();
+                    break;   
+                }
+                case 3:
+                {
+                    Debug.Log("Game beaten! (Attacked)");
+                    //Go back to title
+                    FindObjectOfType<MySceneManager>().TitleScreen();
+                    break;
+                }
+            }
         }
 
         void WinAct()
         {
-            //Set enemy attack to false in PlayerPrefs
-            //Move to next scene
+            //Which battle
+            switch (pathManager.battleNum)
+            {
+                case 1:
+                {
+                    pathManager.SetWolfBefriended(true);
+                    pathManager.battleNum = 2;
+                    FindObjectOfType<MySceneManager>().GoblinBattle();
+                    break;
+                }
+                case 2:
+                {
+                    pathManager.SetGoblinBefriended(true);
+                    pathManager.battleNum = 3;
+                    FindObjectOfType<MySceneManager>().WizardBattle();
+                    break;   
+                }
+                case 3:
+                {
+                    Debug.Log("Game beaten! (Acted)");
+                    //Go back to title
+                    FindObjectOfType<MySceneManager>().TitleScreen();
+                    break;
+                }
+            }
         }
         
         
@@ -441,6 +442,18 @@ namespace CombatSimple
             playerUI.maxHealth = playerCharacter.GetHealth();
             playerUI.UpdateActionPoints(playerCharacter.GetActionPoints());
             playerUI.maxHealth = playerCharacter.GetMaxActionPoints();
+        }
+
+        void InitialisePlayer()
+        {
+            playerCharacter.InitialiseStats();
+            playerUI.SetPortrait(playerCharacter.characterStats.portrait);
+        }
+
+        void InitialiseEnemy()
+        {
+            enemyCharacter.InitialiseStats();
+            enemyUI.SetPortrait(enemyCharacter.characterStats.portrait);
         }
     }
 }
