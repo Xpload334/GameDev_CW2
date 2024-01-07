@@ -57,6 +57,7 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.BoxOpen(true);
         dialogueBox.ClearText(); // Clear the text
 
+        dialogue.startDialogueAction?.Invoke(); //Start dialogue action, if any
         DisplayNext();
     }
 

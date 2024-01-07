@@ -107,7 +107,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 394594362353117011}
-  - {fileID: 4827398323095117553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,7 +139,7 @@ MonoBehaviour:
   isLoading: 0
   fadeImage: {fileID: 394594360876855458}
   fadeOutDelay: 0.5
-  fadeInDelay: 0.5
+  fadeInDelay: 0
   fadeSpeed: 1
 --- !u!1 &394594362353117008
 GameObject:
@@ -243,57 +242,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &4677357723078073622
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4827398323095117553}
-  - component: {fileID: 4000666054587941983}
-  m_Layer: 0
-  m_Name: PlayerPathManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4827398323095117553
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4677357723078073622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 394594361531174430}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4000666054587941983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4677357723078073622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e95c095f6b4465ae6ce0649ad84b1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleNum: 0
-  wolfBefriended: 0
-  goblinBefriended: 0
-  WolfStats: {fileID: 11400000, guid: 94cd3fc57e989bb49b4d34f2c5a797ba, type: 2}
-  GoblinStatsWolfAct: {fileID: 11400000, guid: 8b1c51e0b2418e148b752999b171be23, type: 2}
-  GoblinStatsWolfAttack: {fileID: 11400000, guid: dbac6345d6788cb4fb7d334386326c88, type: 2}
-  WizardStatsAllAct: {fileID: 11400000, guid: cd03eda00e3952a429ea2e3bbd1c5445, type: 2}
-  WizardStatsGoblinAct: {fileID: 11400000, guid: 854cb7c00c5f2454b96b264229a88848, type: 2}
-  WizardStatsWolfAct: {fileID: 11400000, guid: 655ea8c2eb5f0b74989a7ad79ae23297, type: 2}
-  WizardStatsAllAttack: {fileID: 11400000, guid: 64c64c5e6cc194948945a2c8f535ae92, type: 2}

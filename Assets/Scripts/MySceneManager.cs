@@ -32,6 +32,11 @@ public class MySceneManager : MonoBehaviour
         screenFade.StartFadeFromBlack();
     }
 
+    public void FadeFromBlack()
+    {
+        screenFade.StartFadeFromBlack();
+    }
+
     // Update is called once per frame
     void Update()
     {

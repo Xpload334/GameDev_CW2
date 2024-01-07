@@ -18,6 +18,7 @@ public class Dialogue : ScriptableObject
 
     public DialogueEntry[] entries;
 
+    public UnityEvent startDialogueAction;
     public UnityEvent afterDialogueAction;
     public Dialogue nextObject;
     [Header("Notes")]

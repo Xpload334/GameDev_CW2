@@ -2,6 +2,7 @@
 using CombatSimple.UI;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CombatSimple
 {
@@ -44,6 +45,18 @@ namespace CombatSimple
         public void StartState()
         {
             SetCurrentState(CombatStateSimple.Start);
+            foreach (var obj in FindObjectsOfType<MySceneManager>())
+            {
+                try
+                {
+                    obj.FadeFromBlack();
+                }
+                catch
+                {
+                    //None
+                }
+            }
+
             ApplyPathCheck();
 
             InitialisePlayer();
