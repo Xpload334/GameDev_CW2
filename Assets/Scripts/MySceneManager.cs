@@ -92,4 +92,10 @@ public class MySceneManager : MonoBehaviour
         currentSceneIndex = sceneIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
+    
+    public void QuitGame()
+    {
+        Debug.Log("Quitting Game");
+        screenFade.StartFadeToBlack(Application.Quit);
+    }
 }
