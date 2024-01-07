@@ -29,7 +29,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26e36310b7ed1da4091637ed3e5f8dc9, type: 2}
   - {fileID: 11400000, guid: a4fb5272ce198e5478215780fb103749, type: 2}
   - {fileID: 11400000, guid: d821db9787b068d44a9365003595077f, type: 2}
-  defaultBehaviour: {fileID: 0}
+  defaultBehaviour: {fileID: 11400000, guid: f3faf137955b40f46b31c008b85a5526, type: 2}
   startingDialogue: {fileID: 11400000, guid: c532731aa2420c0428f1236735f89c93, type: 2}
   winDialogueAttack: {fileID: 11400000, guid: 5874b65755d16a64fa84a90171e8ab34, type: 2}
   winDialogueAct: {fileID: 11400000, guid: 05c05337e3ba6f244937e62c0da2d666, type: 2}

@@ -19,7 +19,7 @@ MonoBehaviour:
   attacks:
   - {fileID: 11400000, guid: 1357845a428c21248b61c5dc745a4c59, type: 2}
   - {fileID: 11400000, guid: 4e328e5420c82f548b267c86348ef9eb, type: 2}
-  maxActionPoints: 100
+  maxActionPoints: 9999
   currentActionPoints: 0
   actionBehaviours:
   - {fileID: 11400000, guid: 13c64f64588549e4690d1a8dd082ce1a, type: 2}

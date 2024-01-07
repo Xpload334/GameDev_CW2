@@ -31,6 +31,7 @@ namespace CombatSimple
         private void Start()
         {
             StartState();
+            pathManager = FindObjectOfType<PlayerPathManager>();
             // throw new NotImplementedException();
         }
 
@@ -98,14 +99,15 @@ namespace CombatSimple
                 //Wolf battle
                 case 1:
                 {
-                    //No effects
+                    //Wolf
+                    enemyCharacter.characterStats = pathManager.WolfStats;
                     break;
                 }
                 //Goblin battle
                 case 2:
                 {
                     //Check if wolf defeated before
-                    if (pathManager.wolfBefriended)
+                    if (pathManager.GetWolfBefriended())
                     {
                         //Wolf befriended
                         enemyCharacter.characterStats = pathManager.GoblinStatsWolfAct;
@@ -120,9 +122,9 @@ namespace CombatSimple
                 case 3:
                 {
                     //Check for goblin and wolf
-                    if (pathManager.wolfBefriended)
+                    if (pathManager.GetWolfBefriended())
                     {
-                        if (pathManager.goblinBefriended)
+                        if (pathManager.GetGoblinBefriended())
                         {
                             //All befriended, no fight
                             enemyCharacter.characterStats = pathManager.WizardStatsAllAct;
@@ -136,7 +138,7 @@ namespace CombatSimple
                     }
                     else
                     {
-                        if (pathManager.goblinBefriended)
+                        if (pathManager.GetGoblinBefriended())
                         {
                             //Only goblin
                             enemyCharacter.characterStats = pathManager.WizardStatsGoblinAct;
@@ -246,6 +248,7 @@ namespace CombatSimple
         void StartWinAttack()
         {
             Debug.Log("Enemy defeated with attacks");
+            playerMenuUI.DisableUI();
             if (enemyCharacter.characterStats.winDialogueAttack != null)
             {
                 dialogueManager.StartDialogue(enemyCharacter.characterStats.winDialogueAttack, WinAttack);
@@ -255,6 +258,8 @@ namespace CombatSimple
         void StartWinAct()
         {
             Debug.Log("Enemy defeated with acts");
+            
+            playerMenuUI.DisableUI();
             if (enemyCharacter.characterStats.winDialogueAct != null)
             {
                 dialogueManager.StartDialogue(enemyCharacter.characterStats.winDialogueAct, WinAct);
@@ -264,6 +269,7 @@ namespace CombatSimple
         void StartLose()
         {
             Debug.Log("Player defeated");
+            playerMenuUI.DisableUI();
             if (enemyCharacter.characterStats.losingDialogue != null)
             {
                 dialogueManager.StartDialogue(enemyCharacter.characterStats.losingDialogue, RestartCombat);

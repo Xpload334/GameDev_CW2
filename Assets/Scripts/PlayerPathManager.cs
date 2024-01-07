@@ -1,6 +1,7 @@
 ﻿using System;
 using CombatSimple;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
@@ -23,21 +24,21 @@ namespace DefaultNamespace
         public CharacterStats WizardStatsAllAttack;
         private void Start()
         {
-            // wolfBefriended = PlayerPrefs.GetInt(prefWolfBefriended);
-            // goblinBefriended = PlayerPrefs.GetInt(prefGoblinBefriended);
+            wolfBefriended = PlayerPrefs.GetInt("wolf") == 1;
+            goblinBefriended = PlayerPrefs.GetInt("goblin") == 1;
         }
-        private void Awake()
-        {
-            if (_instance == null)
-            {
-                _instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        // private void Awake()
+        // {
+        //     if (_instance == null)
+        //     {
+        //         _instance = this;
+        //         DontDestroyOnLoad(gameObject);
+        //     }
+        //     else
+        //     {
+        //         Destroy(gameObject);
+        //     }
+        // }
 
         /*
          * Call on pressing start game button
@@ -47,17 +48,29 @@ namespace DefaultNamespace
             // battleNum = 0;
             wolfBefriended = false;
             goblinBefriended = false;
+            
+            PlayerPrefs.SetInt("wolf", 0);
+            PlayerPrefs.SetInt("goblin", 0);
         }
 
         public void SetWolfBefriended(bool state)
         {
             wolfBefriended = state;
-            // PlayerPrefs.SetInt(prefWolfBefriended, 1);
+            PlayerPrefs.SetInt("wolf", 1);
         }
         public void SetGoblinBefriended(bool state)
         {
             goblinBefriended = state;
-            // PlayerPrefs.SetInt(prefGoblinBefriended, 1);
+            PlayerPrefs.SetInt("goblin", 1);
+        }
+
+        public bool GetWolfBefriended()
+        {
+            return PlayerPrefs.GetInt("wolf") == 1;
+        }
+        public bool GetGoblinBefriended()
+        {
+            return PlayerPrefs.GetInt("goblin") == 1;
         }
     }
 }

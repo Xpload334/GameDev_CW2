@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MySceneManager : MonoBehaviour
@@ -46,6 +47,7 @@ public class MySceneManager : MonoBehaviour
     public void TitleScreen()
     {
         Debug.Log("Switching to title screen");
+        FindObjectOfType<PlayerPathManager>().ResetPrefs();
         screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Title"));
         
     }
