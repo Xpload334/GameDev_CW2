@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Goblin
   portrait: {fileID: 21300000, guid: 5c66b8496dd5f4f47aa4e5ec53a2e7fe, type: 3}
   maxHealth: 70
-  currentHealth: 70
+  currentHealth: 20
   attacks:
   - {fileID: 11400000, guid: d6b1986f0e7da8a4c947debfd1a71fdc, type: 2}
   - {fileID: 11400000, guid: b8667ef8db6ca8a41b7c2a72eedce769, type: 2}
@@ -29,9 +29,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26e36310b7ed1da4091637ed3e5f8dc9, type: 2}
   - {fileID: 11400000, guid: a4fb5272ce198e5478215780fb103749, type: 2}
   - {fileID: 11400000, guid: d821db9787b068d44a9365003595077f, type: 2}
-  defaultBehaviour: {fileID: 11400000, guid: f3faf137955b40f46b31c008b85a5526, type: 2}
+  defaultBehaviour: {fileID: 11400000, guid: 45b2e351028a771499f57c04ba8b5240, type: 2}
   startingDialogue: {fileID: 11400000, guid: c532731aa2420c0428f1236735f89c93, type: 2}
   winDialogueAttack: {fileID: 11400000, guid: 5874b65755d16a64fa84a90171e8ab34, type: 2}
   winDialogueAct: {fileID: 11400000, guid: 05c05337e3ba6f244937e62c0da2d666, type: 2}
-  losingDialogue: {fileID: 0}
+  losingDialogue: {fileID: 11400000, guid: 345858c57bfc7f24595e02647b8e044d, type: 2}
   description: 

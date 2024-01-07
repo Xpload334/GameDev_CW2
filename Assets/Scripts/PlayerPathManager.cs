@@ -46,22 +46,24 @@ namespace DefaultNamespace
         public void ResetPrefs()
         {
             // battleNum = 0;
-            wolfBefriended = false;
-            goblinBefriended = false;
-            
-            PlayerPrefs.SetInt("wolf", 0);
-            PlayerPrefs.SetInt("goblin", 0);
+            SetWolfBefriended(false);
+            SetGoblinBefriended(false);
+            // wolfBefriended = false;
+            // goblinBefriended = false;
+            //
+            // PlayerPrefs.SetInt("wolf", 0);
+            // PlayerPrefs.SetInt("goblin", 0);
         }
 
         public void SetWolfBefriended(bool state)
         {
             wolfBefriended = state;
-            PlayerPrefs.SetInt("wolf", 1);
+            PlayerPrefs.SetInt("wolf", state ? 1 : 0);
         }
         public void SetGoblinBefriended(bool state)
         {
             goblinBefriended = state;
-            PlayerPrefs.SetInt("goblin", 1);
+            PlayerPrefs.SetInt("goblin", state ? 1 : 0);
         }
 
         public bool GetWolfBefriended()

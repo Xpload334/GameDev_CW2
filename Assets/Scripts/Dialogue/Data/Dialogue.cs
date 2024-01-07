@@ -27,11 +27,18 @@ public class Dialogue : ScriptableObject
 
     public void StopAllLoopingAudio()
     {
-        foreach (var soundPrefab in FindObjectsOfType<SoundPrefab>())
+        foreach (SoundPrefab soundPrefab in FindObjectsOfType<SoundPrefab>())
         {
-            if (soundPrefab.ShouldLoop())
+            try
             {
-                soundPrefab.Stop();
+                if (soundPrefab.ShouldLoop())
+                {
+                    soundPrefab.Stop();
+                }
+            }
+            catch
+            {
+                //None
             }
         }
     }

@@ -165,7 +165,11 @@ namespace CombatSimple
             {
                 StartWinAct();
             }
-            StartPlayerTurn();
+            else
+            {
+                StartPlayerTurn();
+            }
+            
         }
 
         public void StartPlayerTurn()
@@ -253,6 +257,10 @@ namespace CombatSimple
             {
                 dialogueManager.StartDialogue(enemyCharacter.characterStats.winDialogueAttack, WinAttack);
             }
+            else
+            {
+                WinAttack();
+            }
         }
         
         void StartWinAct()
@@ -264,6 +272,10 @@ namespace CombatSimple
             {
                 dialogueManager.StartDialogue(enemyCharacter.characterStats.winDialogueAct, WinAct);
             }
+            else
+            {
+                WinAct();
+            }
         }
 
         void StartLose()
@@ -273,6 +285,10 @@ namespace CombatSimple
             if (enemyCharacter.characterStats.losingDialogue != null)
             {
                 dialogueManager.StartDialogue(enemyCharacter.characterStats.losingDialogue, RestartCombat);
+            }
+            else
+            {
+                RestartCombat();
             }
         }
         

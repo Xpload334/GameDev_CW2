@@ -64,6 +64,7 @@ MonoBehaviour:
       m_Action: Advance
       m_Flags: 0
     m_Flags: 0
+  advanceSound: {fileID: 11400000, guid: 911794cec76b4d308fe5a76e44290cda, type: 2}
 --- !u!114 &6539341215607195780
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,8 @@ public class MySceneManager : MonoBehaviour
     private static MySceneManager _instance;
     public ScreenFade screenFade;
 
-    public string currentScene;
+    // public string currentScene;
+    public int currentSceneIndex;
 
     private void Awake()
     {
@@ -27,10 +28,14 @@ public class MySceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentScene = SceneManager.GetActiveScene().name;
-        
+        // currentScene = SceneManager.GetActiveScene().name;
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
         screenFade = GetComponent<ScreenFade>();
-        screenFade.StartFadeFromBlack();
+        if (!screenFade.isLoading)
+        {
+            screenFade.StartFadeFromBlack();
+        }
     }
 
     public void FadeFromBlack()
@@ -48,31 +53,43 @@ public class MySceneManager : MonoBehaviour
     {
         Debug.Log("Switching to title screen");
         FindObjectOfType<PlayerPathManager>().ResetPrefs();
-        screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Title"));
+        screenFade.StartFadeToBlack(() => LoadScene(0));
         
     }
     public void WolfBattle()
     {
         Debug.Log("Loading wolf battle");
-        screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Combat 1"));
+        screenFade.StartFadeToBlack(() => LoadScene(1));
     }
     
     public void GoblinBattle()
     {
         Debug.Log("Loading goblin battle");
-        screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Combat 2"));
+        screenFade.StartFadeToBlack(() => LoadScene(2));
     }
     
     public void WizardBattle()
     {
         Debug.Log("Loading wizard battle");
-        screenFade.StartFadeToBlack(() => SceneManager.LoadScene("Scenes/Combat 3"));
+        screenFade.StartFadeToBlack(() => LoadScene(3));
     }
 
     public void RestartCurrentScene()
     {
         Debug.Log("Restarting scene");
-        screenFade.StartFadeToBlack(() => SceneManager.LoadScene(currentScene));
+        screenFade.StartFadeToBlack(() => LoadScene(currentSceneIndex));
         // throw new NotImplementedException();
+    }
+
+    // public void LoadScene(string sceneName)
+    // {
+    //     currentScene = sceneName;
+    //     SceneManager.LoadScene(currentScene);
+    // }
+
+    public void LoadScene(int sceneIndex)
+    {
+        currentSceneIndex = sceneIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }

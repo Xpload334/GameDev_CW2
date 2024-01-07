@@ -19,13 +19,13 @@ MonoBehaviour:
   attacks:
   - {fileID: 11400000, guid: 1357845a428c21248b61c5dc745a4c59, type: 2}
   - {fileID: 11400000, guid: 4e328e5420c82f548b267c86348ef9eb, type: 2}
-  maxActionPoints: 100
+  maxActionPoints: 9999
   currentActionPoints: 0
   actionBehaviours:
   - {fileID: 11400000, guid: 13c64f64588549e4690d1a8dd082ce1a, type: 2}
-  defaultBehaviour: {fileID: 0}
+  defaultBehaviour: {fileID: 11400000, guid: 45b2e351028a771499f57c04ba8b5240, type: 2}
   startingDialogue: {fileID: 11400000, guid: 326a76470ac66604d9e29032b3720a88, type: 2}
   winDialogueAttack: {fileID: 11400000, guid: 2ed0027586818fd43812493c1d9272fe, type: 2}
   winDialogueAct: {fileID: 0}
-  losingDialogue: {fileID: 0}
+  losingDialogue: {fileID: 11400000, guid: 345858c57bfc7f24595e02647b8e044d, type: 2}
   description: 

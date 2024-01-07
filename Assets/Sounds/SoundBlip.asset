@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d4121ec29841a2ac07d4a6e72a9d45, type: 3}
-  m_Name: Default_ActionBehaviour
+  m_Script: {fileID: 11500000, guid: dffc4caa001040d7bbca569bcdf715c6, type: 3}
+  m_Name: SoundBlip
   m_EditorClassIdentifier: 
-  actType: 0
-  behaviourIndex: 0
-  behaviours:
-  - actionPointsGain: 0
-    dialogue: {fileID: 11400000, guid: 78c7ac5d42f03fe499726e809d8d80a7, type: 2}
+  _sourcePrefab: {fileID: 7610838424301782502, guid: 216616934215d7f4a9586a3ccfa6095b, type: 3}
+  clip: {fileID: 8300000, guid: 35cf7766e9e2aa542811e896fde57989, type: 3}
+  Loop: 0
+  volume: 1

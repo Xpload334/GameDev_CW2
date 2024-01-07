@@ -1,4 +1,5 @@
 using System;
+using ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public InputAction advanceAction; // InputAction for advancing dialogue
 
     public UnityAction dialogueFinishedAction;
+    public SoundEffectSO advanceSound;
 
     private void Awake()
     {
@@ -84,6 +86,8 @@ public class DialogueManager : MonoBehaviour
             slowPrinter.StopPrint();
             return;
         }
+        
+        
         //If end of list, close dialogue
         if (dialogueIndex >= currentDialogue.entries.Length)
         {
@@ -118,6 +122,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (isDialogueActive)
         {
+            if (!slowPrinter.isRunning)
+            {
+                //Sound
+                if (advanceSound != null) advanceSound.Play();
+            }
             DisplayNext();
         }
     }

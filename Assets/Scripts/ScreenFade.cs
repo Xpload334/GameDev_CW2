@@ -12,9 +12,16 @@ public class ScreenFade : MonoBehaviour
     public float fadeOutDelay = 0.5f;
     public float fadeInDelay = 0.5f;
     public float fadeSpeed = 1f;
-    
+
+
+    private void Start()
+    {
+        StartFadeFromBlack();
+    }
+
     public void StartFadeToBlack(UnityAction afterFadeAction)
     {
+        if(isLoading) return;
         StartCoroutine(FadeToBlack(afterFadeAction));
     }
     public void StartFadeToBlack()
