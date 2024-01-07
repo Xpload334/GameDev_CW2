@@ -14,13 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entries:
   - speaker: 
-    text: As you are travelling the lost path towards the tower, you approach a lone
-      wolf standing in a clearing.
+    text: As you are travelling the lost path on your quest towards the Tower oof
+      Darkness, you approach a lone wolf standing in a clearing.
   - speaker: 
     text: Your quiet approach is cut short as you step on a squeaky toy half-buried
       in the earth, alerting the wolf to your presence.
   - speaker: 
     text: It turns around to face you and bears its teeth.
+  startDialogueAction:
+    m_PersistentCalls:
+      m_Calls: []
   afterDialogueAction:
     m_PersistentCalls:
       m_Calls:
