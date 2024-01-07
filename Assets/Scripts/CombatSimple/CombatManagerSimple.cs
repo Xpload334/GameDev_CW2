@@ -22,6 +22,7 @@ namespace CombatSimple
         public PlayerMenuUI playerMenuUI;
 
         [Header("Paths")] 
+        public int thisBattleNum = 1;
         public PlayerPathManager pathManager;
 
         public bool shouldSkipToEnd = false;
@@ -72,7 +73,7 @@ namespace CombatSimple
             pathManager = FindObjectOfType<PlayerPathManager>();
 
             //First battle
-            switch (pathManager.battleNum)
+            switch (thisBattleNum)
             {
                 //No battles
                 case 0:
