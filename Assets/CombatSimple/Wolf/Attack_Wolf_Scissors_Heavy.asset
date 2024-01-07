@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Attack_Wolf_Scissors_Heavy
   m_EditorClassIdentifier: 
   damageType: 0
-  damageMax: 10
+  damageMax: 20
   damageNormal: 5
   damageMin: 2
-  dialogue: {fileID: 11400000, guid: 3a910eb1fa4b25c419d7a793108489e1, type: 2}
+  dialogue: {fileID: 11400000, guid: 31f7bc0d4dbf9b64f8e4b67dd7eb77af, type: 2}
   minActionPoints: 0
   maxActionPoints: 50
