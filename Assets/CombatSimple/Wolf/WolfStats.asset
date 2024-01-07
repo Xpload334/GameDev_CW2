@@ -31,5 +31,5 @@ MonoBehaviour:
   startingDialogue: {fileID: 11400000, guid: 14ddce6586c76544bb7e3227afbaf8dc, type: 2}
   winDialogueAttack: {fileID: 11400000, guid: f8c9f20acae5d234d92a3ee8dae8dbfe, type: 2}
   winDialogueAct: {fileID: 11400000, guid: 2bdd202763844a74592292a9823fba46, type: 2}
-  losingDialogue: {fileID: 0}
+  losingDialogue: {fileID: 11400000, guid: 345858c57bfc7f24595e02647b8e044d, type: 2}
   description: 

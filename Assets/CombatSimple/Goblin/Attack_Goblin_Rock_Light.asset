@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2815b56a714931ac61e2c9488b181d, type: 3}
   m_Name: Attack_Goblin_Rock_Light
   m_EditorClassIdentifier: 
-  damageType: 0
+  damageType: 1
   damageMax: 5
   damageNormal: 3
   damageMin: 1
   dialogue: {fileID: 11400000, guid: d5e4b50b1efc39d41aeb7e2646ed3825, type: 2}
   minActionPoints: 50
-  maxActionPoints: 100
+  maxActionPoints: 9999

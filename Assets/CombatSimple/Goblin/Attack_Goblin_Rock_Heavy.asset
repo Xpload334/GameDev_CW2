@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2815b56a714931ac61e2c9488b181d, type: 3}
   m_Name: Attack_Goblin_Rock_Heavy
   m_EditorClassIdentifier: 
-  damageType: 0
+  damageType: 1
   damageMax: 45
   damageNormal: 20
   damageMin: 5

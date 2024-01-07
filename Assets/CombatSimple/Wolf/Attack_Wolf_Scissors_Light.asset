@@ -17,5 +17,5 @@ MonoBehaviour:
   damageNormal: 3
   damageMin: 1
   dialogue: {fileID: 11400000, guid: 3bb8c2686080f8c4fb6b8e1d9d6596d9, type: 2}
-  minActionPoints: 50
-  maxActionPoints: 100
+  minActionPoints: 25
+  maxActionPoints: 9999
