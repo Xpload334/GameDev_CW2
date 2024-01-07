@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Attack_Goblin_Paper_Heavy
   m_EditorClassIdentifier: 
   damageType: 0
-  damageMax: 40
-  damageNormal: 15
-  damageMin: 5
+  damageMax: 20
+  damageNormal: 10
+  damageMin: 2
   dialogue: {fileID: 11400000, guid: 64dbb8124262e0a43894be2670c6adc1, type: 2}
   minActionPoints: 0
   maxActionPoints: 50

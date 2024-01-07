@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Palpatinish
   portrait: {fileID: 21300000, guid: bc0f3e66a80669040b070c45c862f5f4, type: 3}
-  maxHealth: 150
-  currentHealth: 150
+  maxHealth: 100
+  currentHealth: 100
   attacks: []
   maxActionPoints: 100
   currentActionPoints: 0

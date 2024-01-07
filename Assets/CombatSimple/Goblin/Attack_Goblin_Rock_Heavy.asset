@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Attack_Goblin_Rock_Heavy
   m_EditorClassIdentifier: 
   damageType: 0
-  damageMax: 45
-  damageNormal: 20
+  damageMax: 30
+  damageNormal: 15
   damageMin: 5
   dialogue: {fileID: 11400000, guid: 6ab68c19358ef3444bdfa446614bc86c, type: 2}
   minActionPoints: 0
