@@ -18,8 +18,7 @@ MonoBehaviour:
   - speaker: Goblin
     text: I'm sorry, Scruffy, I couldn't protect you...
   - speaker: 
-    text: He slumps, out cold but still breathing, as you here a soft whimper come
-      from the small house.
+    text: He slumps, out cold, as you here a soft whimper come from the small house.
   - speaker: 
     text: With the obstacle now removed from your path, you continue into the dense
       foliage covering the lost path to the tower.
